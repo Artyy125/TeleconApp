@@ -70,15 +70,15 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-5" for="Date">Date:</label>
                                 <div class="col-sm-7">
-                                    <input type="number" class="form-control" id="Date" placeholder="" name="Date">
+                                    <input type="text" id="SplicerDate" placeholder="@DateTime.Now.ToShortDateString()" />
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="control-label col-sm-5" for="time">Time:</label>
+                                <label class="control-label col-sm-5" for="time">On Duty Time:</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="Time" placeholder="" name="Time">
+                                    <input id="SplicerTime" type="text" placeholder="02:00" class="form-control input-small">
                                 </div>
                             </div>
                         </div>
@@ -143,76 +143,19 @@
                                         <th>Spliced Single</th>
                                         <th>Missing</th>
                                     </tr>
-                                    <tr>
-                                        <td width="20"><label>1</label></td>
-                                        <td><input type="text" class="form-control" id="SplicerCable1" name="SplicerCable1"></td>
-                                        <td width="50"><input maxlength="5" type="text" class="form-control" id="SplicerNoFibre1" name="SplicerNoFibre1"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerPrepped1" name="SplicerPrepped1"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerDeRebonized1" name="SplicerDeRebonized1"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerRibbon1" name="SplicerRibbon1"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerSingle1" name="SplicerSingle1"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerMissing1" name="SplicerMissing1"></td>
+                                    @for (int i = 0; i < 7; i++)
+                                    {
+                                        <tr>
+                                        <td width="20"><label>@(i+1)</label></td>
+                                        <td><input type="text" class="form-control" id="SplicerCable@(i+1)" name="SplicerCable@(i+1)"></td>
+                                        <td width="50"><input maxlength="5" type="text" class="form-control SplicerCable@(i+1)" onkeyup="this.value=this.value.replace(/[^\d]/,'')" id="SplicerNoFibre@(i+1)" name="SplicerNoFibre@(i+1)" disabled></td>
+                                        <td><input type="checkbox" class="form-control SplicerCable@(i+1)" id="SplicerPrepped@(i+1)" name="SplicerPrepped@(i+1)" disabled></td>
+                                        <td><input type="checkbox" class="form-control SplicerCable@(i+1)" id="SplicerDeRebonized@(i+1)" name="SplicerDeRebonized@(i+1)" disabled></td>
+                                        <td><input type="checkbox" class="form-control SplicerCable@(i+1)" id="SplicerRibbon@(i+1)" name="SplicerRibbon@(i+1)" disabled></td>
+                                        <td><input type="checkbox" class="form-control SplicerCable@(i+1)" id="SplicerSingle@(i+1)" name="SplicerSingle@(i+1)" disabled></td>
+                                        <td><input type="checkbox" class="form-control SplicerCable@(i+1)" id="SplicerMissing@(i+1)" name="SplicerMissing@(i+1)" disabled></td>
                                     </tr>
-                                    <tr>
-                                        <td><label>2</label></td>
-                                        <td><input type="text" class="form-control" id="SplicerCable2" name="SplicerCable2"></td>
-                                        <td width="50"><input maxlength="5" type="text" class="form-control" id="SplicerNoFibre2" name="SplicerNoFibre2"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerPrepped2" name="SplicerPrepped2"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerDeRebonized2" name="SplicerDeRebonized2"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerRibbon2" name="SplicerRibbon2"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerSingle2" name="SplicerSingle2"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerMissing2" name="SplicerMissing2"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label>3</label></td>
-                                        <td><input type="text" class="form-control" id="SplicerCable3" name="SplicerCable3"></td>
-                                        <td width="50"><input maxlength="5" type="text" class="form-control" id="SplicerNoFibre3" name="SplicerNoFibre3"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerPrepped3" name="SplicerPrepped3"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerDeRebonized3" name="SplicerDeRebonized3"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerRibbon3" name="SplicerRibbon3"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerSingle3" name="SplicerSingle3"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerMissing3" name="SplicerMissing3"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label>4</label></td>
-                                        <td><input type="text" class="form-control" id="SplicerCable4" name="SplicerCable4"></td>
-                                        <td width="50"><input maxlength="5" type="text" class="form-control" id="SplicerNoFibre4" name="SplicerNoFibre4"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerPrepped4" name="SplicerPrepped4"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerDeRebonized4" name="SplicerDeRebonized4"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerRibbon4" name="SplicerRibbon4"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerSingle4" name="SplicerSingle4"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerMissing4" name="SplicerMissing4"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label>5</label></td>
-                                        <td><input type="text" class="form-control" id="SplicerCable5" name="SplicerCable5"></td>
-                                        <td width="50"><input maxlength="5" type="text" class="form-control" id="SplicerNoFibre5" name="SplicerNoFibre5"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerPrepped5" name="SplicerPrepped5"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerDeRebonized5" name="SplicerDeRebonized5"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerRibbon5" name="SplicerRibbon5"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerSingle5" name="SplicerSingle5"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerMissing5" name="SplicerMissing5"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label>6</label></td>
-                                        <td><input type="text" class="form-control" id="SplicerCable6" name="SplicerCable6"></td>
-                                        <td width="50"><input maxlength="5" type="text" class="form-control" id="SplicerNoFibre6" name="SplicerNoFibre6"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerPrepped6" name="SplicerPrepped6"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerDeRebonized6" name="SplicerDeRebonized6"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerRibbon6" name="SplicerRibbon6"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerSingle6" name="SplicerSingle6"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerMissing6" name="SplicerMissing6"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label>7</label></td>
-                                        <td><input type="text" class="form-control" id="SplicerCable7" name="SplicerCable7"></td>
-                                        <td width="50"><input maxlength="5" type="text" class="form-control" id="SplicerNoFibre7" name="SplicerNoFibre7"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerPrepped7" name="SplicerPrepped7"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerDeRebonized7" name="SplicerDeRebonized7"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerRibbon7" name="SplicerRibbon7"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerSingle7" name="SplicerSingle7"></td>
-                                        <td><input type="checkbox" class="form-control" id="SplicerMissing7" name="SplicerMissing7"></td>
-                                    </tr>
+                                    }
                                 </table>
                             </div>
                         </div>
@@ -227,4 +170,88 @@
         </div>
     </div>
 </div>
+<script>
+    $(function () {
+        $("#SplicerDate").datepicker();
+    });
+    $('#SplicerTime').timepicker({
+        maxHours: 24,
+        minuteStep: 1,
+        showSeconds: false,
+        showMeridian: false,
+        showInputs: false,
+        template: 'modal',
+        defaultTime: false
+    });
+    $("#SplicerCable1").keyup(function () {
+        if ($("#SplicerCable1").val().length > 0) {
+            $(".SplicerCable1").prop("disabled", false);
+        }
+        else {
+            $(".SplicerCable1").prop("disabled", true);
+            $(".SplicerCable1").prop('checked', false);
+            $('#SplicerNoFibre1').val('');
+        }
+    });
+    $("#SplicerCable2").keyup(function () {
+        if ($("#SplicerCable2").val().length > 0) {
+            $(".SplicerCable2").prop("disabled", false);
+        }
+        else {
+            $(".SplicerCable2").prop("disabled", true);
+            $(".SplicerCable2").prop('checked', false);
+            $('#SplicerNoFibre2').val('');
+        }
+    });
+    $("#SplicerCable3").keyup(function () {
+        if ($("#SplicerCable3").val().length > 0) {
+            $(".SplicerCable3").prop("disabled", false);
+        }
+        else {
+            $(".SplicerCable3").prop("disabled", true);
+            $(".SplicerCable3").prop('checked', false);
+            $('#SplicerNoFibre3').val('');
+        }
+    });
+    $("#SplicerCable4").keyup(function () {
+        if ($("#SplicerCable4").val().length > 0) {
+            $(".SplicerCable4").prop("disabled", false);
+        }
+        else {
+            $(".SplicerCable4").prop("disabled", true);
+            $(".SplicerCable4").prop('checked', false);
+            $('#SplicerNoFibre4').val('');
+        }
+    });
+    $("#SplicerCable5").keyup(function () {
+        if ($("#SplicerCable5").val().length > 0) {
+            $(".SplicerCable5").prop("disabled", false);
+        }
+        else {
+            $(".SplicerCable5").prop("disabled", true);
+            $(".SplicerCable5").prop('checked', false);
+            $('#SplicerNoFibre5').val('');
+        }
+    });
+    $("#SplicerCable6").keyup(function () {
+        if ($("#SplicerCable6").val().length > 0) {
+            $(".SplicerCable6").prop("disabled", false);
+        }
+        else {
+            $(".SplicerCable6").prop("disabled", true);
+            $(".SplicerCable6").prop('checked', false);
+            $('#SplicerNoFibre6').val('');
+        }
+    });
+    $("#SplicerCable7").keyup(function () {
+        if ($("#SplicerCable7").val().length > 0) {
+            $(".SplicerCable7").prop("disabled", false);
+        }
+        else {
+            $(".SplicerCable7").prop("disabled", true);
+            $(".SplicerCable7").prop('checked', false);
+            $('#SplicerNoFibre7').val('');
+        }
+    });
+</script>
 

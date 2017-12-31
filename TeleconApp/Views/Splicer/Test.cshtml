@@ -1,5 +1,260 @@
 ﻿
+@model TeleconApp.Models.SplicerModel
+<style>
+    .wrapper {
+        position: relative;
+        left: 10%; /*move the object to the center of the parent object*/
+        top: 50%;
+        /*these 5 settings change the base (or registration) point of the wrapper object to it's own center - so we align child center with parent center*/
+    }
+</style>
 <div class="panel panel-body">
-    @Html.Partial("/Views/Partials/_LeftMenu.cshtml")
+    <div class="row">
+        <div class="panel panel-body col-md-3">
+            @Html.Partial("/Views/Partials/_LeftMenu.cshtml")
+        </div>
+        <div class="col-md-9">
+            <form class="form-horizontal" action="/Splicer/Save">
+                <label>Basic Info</label>
+                <div class="panel panel-group panel-info">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="Id">Employment Id:</label>
+                                <div class="col-sm-7">
+                                    <input type="number" class="form-control" id="Id" placeholder="Enter Employment Id" name="Id">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="TechName">Tech Name:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="TechName" placeholder="Enter Tech Name" name="TechName">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="ForemanName">Foreman Name:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="ForemanName" placeholder="Foreman Name" name="ForemanName">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="LeadName">Lead Name:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="LeadName" placeholder="Lead Name" name="LeadName">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="PlateNumber">Vehicle/Truck ID:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="PlateNumber" placeholder="Foreman Name" name="PlateNumber">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <label>Today Job Done</label>
+                <div class="panel panel-group panel-info">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="Date">Date:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" id="SplicerDate" placeholder="@DateTime.Now.ToShortDateString()" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="time">On Duty Time:</label>
+                                <div class="col-sm-7">
+                                    <input id="SplicerTime" type="text" placeholder="02:00" class="form-control input-small">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="BellNetworkNumber">Bell Network#:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="BellNetworkNumber" placeholder="Bell Network#" name="BellNetworkNumber">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="PartnersName">Partner(s) Name:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="PartnersName" placeholder="Partner(s) Name" name="PartnersName">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <label>Preparation</label>
+                <div class="panel panel-group panel-info">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="EnclosureName">Prepped Enclosure:</label>
+                                <div class="col-sm-7">
+                                    <input type="number" class="form-control" id="EnclosureName" placeholder="Prepped Enclosure" name="EnclosureName">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="time">ARB:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="ARB" placeholder="ARB" name="ARB">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label" for="time">Enter Cable Id Done (eg, AO,BA, D2)  then  select relevant item:</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-11">
+                            <div class="form-group wrapper">
+                                <table class="col-sm-11" style="text-align:center">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Cable Id</th>
+                                        <th>No of Fibres</th>
+                                        <th>Prepped</th>
+                                        <th>De-Rebonized</th>
+                                        <th>Spliced Ribbon</th>
+                                        <th>Spliced Single</th>
+                                        <th>Missing</th>
+                                    </tr>
+                                    @for (int i = 0; i < 7; i++)
+                                    {
+                                        <tr>
+                                            <td width="20"><label>@(i + 1)</label></td>
+                                            <td><input type="text" class="form-control" id="SplicerCable@(i+1)" name="SplicerCable@(i+1)"></td>
+                                            <td width="50"><input maxlength="5" type="text" class="form-control SplicerCable@(i+1)" onkeyup="this.value=this.value.replace(/[^\d]/,'')" id="SplicerNoFibre@(i+1)" name="SplicerNoFibre@(i+1)" disabled></td>
+                                            <td><input type="checkbox" class="form-control SplicerCable@(i+1)" id="SplicerPrepped@(i+1)" name="SplicerPrepped@(i+1)" disabled></td>
+                                            <td><input type="checkbox" class="form-control SplicerCable@(i+1)" id="SplicerDeRebonized@(i+1)" name="SplicerDeRebonized@(i+1)" disabled></td>
+                                            <td><input type="checkbox" class="form-control SplicerCable@(i+1)" id="SplicerRibbon@(i+1)" name="SplicerRibbon@(i+1)" disabled></td>
+                                            <td><input type="checkbox" class="form-control SplicerCable@(i+1)" id="SplicerSingle@(i+1)" name="SplicerSingle@(i+1)" disabled></td>
+                                            <td><input type="checkbox" class="form-control SplicerCable@(i+1)" id="SplicerMissing@(i+1)" name="SplicerMissing@(i+1)" disabled></td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
+<script>
+    $(function () {
+        $("#SplicerDate").datepicker();
+    });
+    $('#SplicerTime').timepicker({
+        maxHours: 24,
+        minuteStep: 1,
+        showSeconds: false,
+        showMeridian: false,
+        showInputs: false,
+        template: 'modal',
+        defaultTime: false
+    });
+    $("#SplicerCable1").keyup(function () {
+        if ($("#SplicerCable1").val().length > 0) {
+            $(".SplicerCable1").prop("disabled", false);
+        }
+        else {
+            $(".SplicerCable1").prop("disabled", true);
+            $(".SplicerCable1").prop('checked', false);
+            $('#SplicerNoFibre1').val('');
+        }
+    });
+    $("#SplicerCable2").keyup(function () {
+        if ($("#SplicerCable2").val().length > 0) {
+            $(".SplicerCable2").prop("disabled", false);
+        }
+        else {
+            $(".SplicerCable2").prop("disabled", true);
+            $(".SplicerCable2").prop('checked', false);
+            $('#SplicerNoFibre2').val('');
+        }
+    });
+    $("#SplicerCable3").keyup(function () {
+        if ($("#SplicerCable3").val().length > 0) {
+            $(".SplicerCable3").prop("disabled", false);
+        }
+        else {
+            $(".SplicerCable3").prop("disabled", true);
+            $(".SplicerCable3").prop('checked', false);
+            $('#SplicerNoFibre3').val('');
+        }
+    });
+    $("#SplicerCable4").keyup(function () {
+        if ($("#SplicerCable4").val().length > 0) {
+            $(".SplicerCable4").prop("disabled", false);
+        }
+        else {
+            $(".SplicerCable4").prop("disabled", true);
+            $(".SplicerCable4").prop('checked', false);
+            $('#SplicerNoFibre4').val('');
+        }
+    });
+    $("#SplicerCable5").keyup(function () {
+        if ($("#SplicerCable5").val().length > 0) {
+            $(".SplicerCable5").prop("disabled", false);
+        }
+        else {
+            $(".SplicerCable5").prop("disabled", true);
+            $(".SplicerCable5").prop('checked', false);
+            $('#SplicerNoFibre5').val('');
+        }
+    });
+    $("#SplicerCable6").keyup(function () {
+        if ($("#SplicerCable6").val().length > 0) {
+            $(".SplicerCable6").prop("disabled", false);
+        }
+        else {
+            $(".SplicerCable6").prop("disabled", true);
+            $(".SplicerCable6").prop('checked', false);
+            $('#SplicerNoFibre6').val('');
+        }
+    });
+    $("#SplicerCable7").keyup(function () {
+        if ($("#SplicerCable7").val().length > 0) {
+            $(".SplicerCable7").prop("disabled", false);
+        }
+        else {
+            $(".SplicerCable7").prop("disabled", true);
+            $(".SplicerCable7").prop('checked', false);
+            $('#SplicerNoFibre7').val('');
+        }
+    });
+</script>
+
+
 
