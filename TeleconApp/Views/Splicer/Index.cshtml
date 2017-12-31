@@ -1,12 +1,12 @@
 ﻿@model TeleconApp.Models.SplicerModel
-    <style>
-        .wrapper {
-            position: relative;
-            left: 10%; /*move the object to the center of the parent object*/
-            top:50%;
-            /*these 5 settings change the base (or registration) point of the wrapper object to it's own center - so we align child center with parent center*/
-        }
-    </style>
+<style>
+    .wrapper {
+        position: relative;
+        left: 10%; /*move the object to the center of the parent object*/
+        top: 50%;
+        /*these 5 settings change the base (or registration) point of the wrapper object to it's own center - so we align child center with parent center*/
+    }
+</style>
 <div class="panel panel-body">
     <div class="row">
         <div class="panel panel-body col-md-3">
@@ -132,7 +132,7 @@
                     <div class="row">
                         <div class="col-md-11">
                             <div class="form-group wrapper">
-                                <table class="col-sm-11" style="text-align:center">
+                                <table class="table-responsive" style="text-align:center">
                                     <tr>
                                         <th>No</th>
                                         <th>Cable Id</th>
@@ -146,17 +146,27 @@
                                     @for (int i = 0; i < 7; i++)
                                     {
                                         <tr>
-                                        <td width="20"><label>@(i+1)</label></td>
-                                        <td><input type="text" class="form-control" id="SplicerCable@(i+1)" name="SplicerCable@(i+1)"></td>
-                                        <td width="50"><input maxlength="5" type="text" class="form-control SplicerCable@(i+1)" onkeyup="this.value=this.value.replace(/[^\d]/,'')" id="SplicerNoFibre@(i+1)" name="SplicerNoFibre@(i+1)" disabled></td>
-                                        <td><input type="checkbox" class="form-control SplicerCable@(i+1)" id="SplicerPrepped@(i+1)" name="SplicerPrepped@(i+1)" disabled></td>
-                                        <td><input type="checkbox" class="form-control SplicerCable@(i+1)" id="SplicerDeRebonized@(i+1)" name="SplicerDeRebonized@(i+1)" disabled></td>
-                                        <td><input type="checkbox" class="form-control SplicerCable@(i+1)" id="SplicerRibbon@(i+1)" name="SplicerRibbon@(i+1)" disabled></td>
-                                        <td><input type="checkbox" class="form-control SplicerCable@(i+1)" id="SplicerSingle@(i+1)" name="SplicerSingle@(i+1)" disabled></td>
-                                        <td><input type="checkbox" class="form-control SplicerCable@(i+1)" id="SplicerMissing@(i+1)" name="SplicerMissing@(i+1)" disabled></td>
-                                    </tr>
+                                            <td width="30"><label>@(i + 1)</label></td>
+                                            <td width="100"><input type="text" class="form-control" id="SplicerCable@(i + 1)" name="SplicerCable@(i + 1)"></td>
+                                            <td width="60"><input maxlength="5" type="text" class="form-control SplicerCable@(i + 1)" onkeyup="this.value=this.value.replace(/[^\d]/,'')" id="SplicerNoFibre@(i + 1)" name="SplicerNoFibre@(i + 1)" disabled></td>
+                                            <td><input type="checkbox" class="form-control SplicerCable@(i + 1)" id="SplicerPrepped@(i + 1)" name="SplicerPrepped@(i + 1)" disabled></td>
+                                            <td><input type="checkbox" class="form-control SplicerCable@(i + 1)" id="SplicerDeRebonized@(i + 1)" name="SplicerDeRebonized@(i + 1)" disabled></td>
+                                            <td><input type="checkbox" class="form-control SplicerCable@(i + 1)" id="SplicerRibbon@(i + 1)" name="SplicerRibbon@(i + 1)" disabled></td>
+                                            <td><input type="checkbox" class="form-control SplicerCable@(i + 1)" id="SplicerSingle@(i + 1)" name="SplicerSingle@(i + 1)" disabled></td>
+                                            <td><input type="checkbox" class="form-control SplicerCable@(i + 1)" id="SplicerMissing@(i + 1)" name="SplicerMissing@(i + 1)" disabled></td>
+                                        </tr>
                                     }
                                 </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="time">Enter Time:</label>
+                                <div class="col-sm-7">
+                                    <input id="SplicerEnterTime" type="text" placeholder="02:00" class="form-control input-small">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -170,88 +180,5 @@
         </div>
     </div>
 </div>
-<script>
-    $(function () {
-        $("#SplicerDate").datepicker();
-    });
-    $('#SplicerTime').timepicker({
-        maxHours: 24,
-        minuteStep: 1,
-        showSeconds: false,
-        showMeridian: false,
-        showInputs: false,
-        template: 'modal',
-        defaultTime: false
-    });
-    $("#SplicerCable1").keyup(function () {
-        if ($("#SplicerCable1").val().length > 0) {
-            $(".SplicerCable1").prop("disabled", false);
-        }
-        else {
-            $(".SplicerCable1").prop("disabled", true);
-            $(".SplicerCable1").prop('checked', false);
-            $('#SplicerNoFibre1').val('');
-        }
-    });
-    $("#SplicerCable2").keyup(function () {
-        if ($("#SplicerCable2").val().length > 0) {
-            $(".SplicerCable2").prop("disabled", false);
-        }
-        else {
-            $(".SplicerCable2").prop("disabled", true);
-            $(".SplicerCable2").prop('checked', false);
-            $('#SplicerNoFibre2').val('');
-        }
-    });
-    $("#SplicerCable3").keyup(function () {
-        if ($("#SplicerCable3").val().length > 0) {
-            $(".SplicerCable3").prop("disabled", false);
-        }
-        else {
-            $(".SplicerCable3").prop("disabled", true);
-            $(".SplicerCable3").prop('checked', false);
-            $('#SplicerNoFibre3').val('');
-        }
-    });
-    $("#SplicerCable4").keyup(function () {
-        if ($("#SplicerCable4").val().length > 0) {
-            $(".SplicerCable4").prop("disabled", false);
-        }
-        else {
-            $(".SplicerCable4").prop("disabled", true);
-            $(".SplicerCable4").prop('checked', false);
-            $('#SplicerNoFibre4').val('');
-        }
-    });
-    $("#SplicerCable5").keyup(function () {
-        if ($("#SplicerCable5").val().length > 0) {
-            $(".SplicerCable5").prop("disabled", false);
-        }
-        else {
-            $(".SplicerCable5").prop("disabled", true);
-            $(".SplicerCable5").prop('checked', false);
-            $('#SplicerNoFibre5').val('');
-        }
-    });
-    $("#SplicerCable6").keyup(function () {
-        if ($("#SplicerCable6").val().length > 0) {
-            $(".SplicerCable6").prop("disabled", false);
-        }
-        else {
-            $(".SplicerCable6").prop("disabled", true);
-            $(".SplicerCable6").prop('checked', false);
-            $('#SplicerNoFibre6').val('');
-        }
-    });
-    $("#SplicerCable7").keyup(function () {
-        if ($("#SplicerCable7").val().length > 0) {
-            $(".SplicerCable7").prop("disabled", false);
-        }
-        else {
-            $(".SplicerCable7").prop("disabled", true);
-            $(".SplicerCable7").prop('checked', false);
-            $('#SplicerNoFibre7').val('');
-        }
-    });
-</script>
+<script src="~/Scripts/Myscript.js"></script>
 

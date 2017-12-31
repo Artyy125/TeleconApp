@@ -1,5 +1,101 @@
 ﻿
+@model TeleconApp.Models.SplicerModel
+<style>
+    .wrapper {
+        position: relative;
+        left: 10%; /*move the object to the center of the parent object*/
+        top: 50%;
+        /*these 5 settings change the base (or registration) point of the wrapper object to it's own center - so we align child center with parent center*/
+    }
+</style>
 <div class="panel panel-body">
-    @Html.Partial("/Views/Partials/_LeftMenu.cshtml")
+    <div class="row">
+        <div class="panel panel-body col-md-3">
+            @Html.Partial("/Views/Partials/_LeftMenu.cshtml")
+        </div>
+        <div class="col-md-9">
+            <form class="form-horizontal" action="/Splicer/Save">
+                <label>Basic Info</label>
+                <div class="panel panel-group panel-info">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="Date">Date:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" id="SplicerDate" placeholder="@DateTime.Now.ToShortDateString()" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="time">Job start at:</label>
+                                <div class="col-sm-7">
+                                    <input id="SplicerTime" type="text" placeholder="02:00" class="form-control input-small">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="time">Finish at Site:</label>
+                                <div class="col-sm-7">
+                                    <input id="SplicerTime" type="text" placeholder="02:00" class="form-control input-small">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="time">Arrive at shop:</label>
+                                <div class="col-sm-7">
+                                    <input id="SplicerTime" type="text" placeholder="02:00" class="form-control input-small">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="time">Off duty:</label>
+                                <div class="col-sm-7">
+                                    <input id="SplicerTime" type="text" placeholder="02:00" class="form-control input-small">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="ForemanName">Odometer Reading@@ end of the day:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="ForemanName" placeholder="68254" name="ForemanName">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="ForemanName">Comment:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="ForemanName" placeholder="Cable CA,  damaged" name="ForemanName">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
+<script src="~/Scripts/Myscript.js"></script>
+
+
+
+
 
