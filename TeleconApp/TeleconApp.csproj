@@ -198,6 +198,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SplicerController.cs" />
     <Compile Include="EFModel\CableType.cs" />
     <Compile Include="EFModel\CivilTask.cs" />
     <Compile Include="EFModel\Division.cs" />
@@ -223,10 +224,15 @@
     <Compile Include="Migrations\201712301500064_AllTables.Designer.cs">
       <DependentUpon>201712301500064_AllTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712311428100_owin.cs" />
+    <Compile Include="Migrations\201712311428100_owin.Designer.cs">
+      <DependentUpon>201712311428100_owin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SplicerModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -287,6 +293,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Splicer\Index.cshtml" />
+    <Content Include="Views\Partials\_LeftMenu.cshtml" />
+    <Content Include="Views\Splicer\Test.cshtml" />
+    <Content Include="Views\Splicer\TimeSheet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -307,9 +317,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712282312390_Employee.resx">
       <DependentUpon>201712282312390_Employee.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712301500064_AllTables.resx">
       <DependentUpon>201712301500064_AllTables.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712311428100_owin.resx">
+      <DependentUpon>201712311428100_owin.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
