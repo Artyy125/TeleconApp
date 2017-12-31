@@ -198,14 +198,30 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="EFModel\CableType.cs" />
+    <Compile Include="EFModel\CivilTask.cs" />
+    <Compile Include="EFModel\Division.cs" />
+    <Compile Include="EFModel\Drill.cs" />
     <Compile Include="EFModel\Employee.cs" />
+    <Compile Include="EFModel\Enclosure.cs" />
+    <Compile Include="EFModel\Network.cs" />
+    <Compile Include="EFModel\SplicerCableActivity.cs" />
+    <Compile Include="EFModel\SplicerPrepActivity.cs" />
+    <Compile Include="EFModel\SplicingPrep.cs" />
+    <Compile Include="EFModel\SplicingTest.cs" />
     <Compile Include="EFModel\TeleconDbContext.cs" />
+    <Compile Include="EFModel\VacTruck.cs" />
+    <Compile Include="EFModel\Vehicle.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201712282312390_Employee.cs" />
     <Compile Include="Migrations\201712282312390_Employee.Designer.cs">
       <DependentUpon>201712282312390_Employee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712301500064_AllTables.cs" />
+    <Compile Include="Migrations\201712301500064_AllTables.Designer.cs">
+      <DependentUpon>201712301500064_AllTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -291,6 +307,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712282312390_Employee.resx">
       <DependentUpon>201712282312390_Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712301500064_AllTables.resx">
+      <DependentUpon>201712301500064_AllTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
