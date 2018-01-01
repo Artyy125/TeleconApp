@@ -346,6 +346,8 @@
     <Content Include="Content\bootstrap\alerts.less" />
     <Content Include="Content\_bootstrap-datetimepicker.less" />
     <Content Include="Content\bootstrap-datetimepicker-build.less" />
+    <None Include="Properties\PublishProfiles\TeleconApp - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\TeleconApp - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

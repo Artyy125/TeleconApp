@@ -22,4 +22,16 @@ select,
 textarea {
     max-width: 280px;
 }
+.navbar-custom {
+    background-color: #104f7c;
+}
+.navbar-brand{
+    color:white;
+}
+.navbar-brand:hover{
+    color:red;
+}
+.navbar-custom {
+    color: white;
+}
 

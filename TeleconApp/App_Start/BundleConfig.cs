@@ -25,7 +25,7 @@ namespace TeleconApp
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css", "~/Content/jquery-ui.min.css",
+                      "~/Content/jquery-ui.min.css",
                       "~/Content/jquery-ui.theme.min.css", "~/Content/jquery-ui.min"));
         }
     }
