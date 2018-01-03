@@ -56,6 +56,9 @@
     <Reference Include="MySql.Data.Entity.EF6, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.Entity.6.9.10\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Web, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Web.6.9.10\lib\net45\MySql.Web.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -196,6 +199,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApplicationBaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SplicerController.cs" />
@@ -204,7 +208,9 @@
     <Compile Include="EFModel\Division.cs" />
     <Compile Include="EFModel\Drill.cs" />
     <Compile Include="EFModel\Employee.cs" />
+    <Compile Include="EFModel\EmployeeDivision.cs" />
     <Compile Include="EFModel\Enclosure.cs" />
+    <Compile Include="EFModel\MySqlInitializer.cs" />
     <Compile Include="EFModel\Network.cs" />
     <Compile Include="EFModel\SplicerCableActivity.cs" />
     <Compile Include="EFModel\SplicerPrepActivity.cs" />
@@ -224,11 +230,29 @@
     <Compile Include="Migrations\201712301500064_AllTables.Designer.cs">
       <DependentUpon>201712301500064_AllTables.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712311428100_owin.cs" />
-    <Compile Include="Migrations\201712311428100_owin.Designer.cs">
-      <DependentUpon>201712311428100_owin.cs</DependentUpon>
+    <Compile Include="Migrations\201801021717333_updateEmployeeRemoveBirthDate.cs" />
+    <Compile Include="Migrations\201801021717333_updateEmployeeRemoveBirthDate.Designer.cs">
+      <DependentUpon>201801021717333_updateEmployeeRemoveBirthDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801021841479_EmployeeDivision.cs" />
+    <Compile Include="Migrations\201801021841479_EmployeeDivision.Designer.cs">
+      <DependentUpon>201801021841479_EmployeeDivision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801031419023_RemoveDivisionIdEmployee.cs" />
+    <Compile Include="Migrations\201801031419023_RemoveDivisionIdEmployee.Designer.cs">
+      <DependentUpon>201801031419023_RemoveDivisionIdEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Identity\201801031732471_EmployeeId.cs" />
+    <Compile Include="Migrations\Identity\201801031732471_EmployeeId.Designer.cs">
+      <DependentUpon>201801031732471_EmployeeId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Identity\201801031752079_UpdateUser.cs" />
+    <Compile Include="Migrations\Identity\201801031752079_UpdateUser.Designer.cs">
+      <DependentUpon>201801031752079_UpdateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Identity\ConfigurationIdentity.cs" />
+    <Compile Include="Migrations\MySqlHistoryContext.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -413,6 +437,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ApplicationBase\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -426,9 +451,20 @@
       <DependentUpon>201712301500064_AllTables.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712311428100_owin.resx">
-      <DependentUpon>201712311428100_owin.cs</DependentUpon>
-      <SubType>Designer</SubType>
+    <EmbeddedResource Include="Migrations\201801021717333_updateEmployeeRemoveBirthDate.resx">
+      <DependentUpon>201801021717333_updateEmployeeRemoveBirthDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801021841479_EmployeeDivision.resx">
+      <DependentUpon>201801021841479_EmployeeDivision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801031419023_RemoveDivisionIdEmployee.resx">
+      <DependentUpon>201801031419023_RemoveDivisionIdEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Identity\201801031732471_EmployeeId.resx">
+      <DependentUpon>201801031732471_EmployeeId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Identity\201801031752079_UpdateUser.resx">
+      <DependentUpon>201801031752079_UpdateUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

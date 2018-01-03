@@ -11,7 +11,7 @@ using TeleconApp.Models;
 namespace TeleconApp.Controllers
 {
     [Authorize]
-    public class ManageController : Controller
+    public class ManageController : ApplicationBaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;

@@ -1,21 +1,22 @@
-namespace TeleconApp.Migrations
+namespace TeleconApp.Migrations.Identity
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<TeleconApp.EFModel.TeleconDbContext>
+    internal sealed class ConfigurationIdentity : DbMigrationsConfiguration<TeleconApp.Models.ApplicationDbContext>
     {
-        public Configuration()
+        public ConfigurationIdentity()
         {
             AutomaticMigrationsEnabled = false;
+            MigrationsDirectory = @"Migrations\Identity";
             SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator());
 
             SetHistoryContextFactory("MySql.Data.MySqlClient", (conn, schema) => new MySqlHistoryContext(conn, schema));
         }
 
-        protected override void Seed(TeleconApp.EFModel.TeleconDbContext context)
+        protected override void Seed(TeleconApp.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -7,13 +7,13 @@ namespace TeleconApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class owin : IMigrationMetadata
+    public sealed partial class updateEmployeeRemoveBirthDate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(owin));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updateEmployeeRemoveBirthDate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712311428100_owin"; }
+            get { return "201801021717333_updateEmployeeRemoveBirthDate"; }
         }
         
         string IMigrationMetadata.Source

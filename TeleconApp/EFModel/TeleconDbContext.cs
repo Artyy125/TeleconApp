@@ -25,6 +25,7 @@ namespace TeleconApp.EFModel
         public DbSet<SplicingTest> SplicerTests { get; set; }
         public DbSet<VacTruck> VackTrucks { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
+        public DbSet<EmployeeDivision> EmployeeDivisions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

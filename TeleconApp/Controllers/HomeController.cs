@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace TeleconApp.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ApplicationBaseController
     {
         public ActionResult Index()
         {

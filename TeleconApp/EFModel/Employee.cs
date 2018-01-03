@@ -21,7 +21,5 @@ namespace TeleconApp.EFModel
         [MaxLength(500)]
         public string Address { get; set; }
         public DateTime StartDate { get; set; }
-        public int DivisionId { get; set; }
-        public DateTime BirthDate { get; set; }
     }
 }

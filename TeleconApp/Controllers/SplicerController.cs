@@ -7,7 +7,8 @@ using TeleconApp.Models;
 
 namespace TeleconApp.Controllers
 {
-    public class SplicerController : Controller
+    [Authorize]
+    public class SplicerController : ApplicationBaseController
     {
         // GET: Splicer
         public ActionResult Index()
