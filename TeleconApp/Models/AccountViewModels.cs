@@ -82,10 +82,6 @@ namespace TeleconApp.Models
         public string TechName { get; set; }
 
         [Required]
-        [Display(Name = "Job Role")]
-        public string JobRole { get; set; }
-
-        [Required]
         [Display(Name = "Start Date")]
         public DateTime StartDate { get; set; }
 
