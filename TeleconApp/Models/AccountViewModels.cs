@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace TeleconApp.Models
@@ -75,6 +76,19 @@ namespace TeleconApp.Models
         [Required]
         [Display(Name = "User Name")]
         public int EmployeeId { get; set; }
+
+        [Required]
+        [Display(Name = "Tech Name")]
+        public string TechName { get; set; }
+
+        [Required]
+        [Display(Name = "Start Date")]
+        public DateTime StartDate { get; set; }
+
+        public string Address { get; set; }
+
+        [Display(Name = "Phone Number")]
+        public string PhoneNumber { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

@@ -151,7 +151,8 @@ namespace TeleconApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.EmployeeId.ToString(), Email = model.Email.ToString() };
+                var user = new ApplicationUser { UserName = model.EmployeeId.ToString(), Email = model.Email.ToString(),
+                Address = model.Address,TechName = model.TechName,PhoneNumber = model.PhoneNumber,StartDate = model.StartDate,EmployeeId = model.EmployeeId};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
