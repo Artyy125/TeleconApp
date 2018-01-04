@@ -82,6 +82,10 @@ namespace TeleconApp.Models
         public string TechName { get; set; }
 
         [Required]
+        [Display(Name = "Job Role")]
+        public string JobRole { get; set; }
+
+        [Required]
         [Display(Name = "Start Date")]
         public DateTime StartDate { get; set; }
 
@@ -100,6 +104,7 @@ namespace TeleconApp.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+        public string Result { get; set; }
     }
 
     public class ResetPasswordViewModel

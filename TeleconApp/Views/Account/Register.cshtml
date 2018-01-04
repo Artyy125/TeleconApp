@@ -11,6 +11,7 @@
     <h4>Create a new account.</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
+    <label class="success">@(Model?.Result)</label>
     <div class="form-group">
         @Html.LabelFor(m => m.EmployeeId, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
