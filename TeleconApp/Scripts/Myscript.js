@@ -161,3 +161,8 @@ $("#STARB7").keyup(function () {
         $(".STARB7").prop('checked', false);
     }
 });
+$(function () {
+    $('.multiselect-ui').multiselect({
+        includeSelectAllOption: true
+    });
+});

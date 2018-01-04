@@ -3,32 +3,172 @@
     padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+/* Zebra striping */
+tr:nth-of-type(odd) {
+    background: #eee;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
+th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+}
+
+td, th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+        td:before {
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+    /* Set padding to keep content from hitting the edges */
+    .body-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+    /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
-.dl-horizontal dt {
-    white-space: normal;
-}
+    .dl-horizontal dt {
+        white-space: normal;
+    }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-.navbar-custom {
-    background-color: #104f7c;
-}
-.navbar-brand{
-    color:white;
-}
-.navbar-brand:hover{
-    color:red;
-}
+    /* Set width on the form input elements since they're 100% wide by default */
+    input,
+    select,
+    textarea {
+        max-width: 280px;
+    }
+
+    .navbar-custom {
+        background-color: #104f7c;
+    }
+
+    .navbar-brand {
+        color: white;
+    }
+
+        .navbar-brand:hover {
+            color: red;
+        }
+
+    span.multiselect-native-select {
+        position: relative
+    }
+
+        span.multiselect-native-select select {
+            border: 0 !important;
+            clip: rect(0 0 0 0) !important;
+            height: 1px !important;
+            margin: -1px -1px -1px -3px !important;
+            overflow: hidden !important;
+            padding: 0 !important;
+            position: absolute !important;
+            width: 1px !important;
+            left: 50%;
+            top: 30px
+        }
+
+    .multiselect-container {
+        position: absolute;
+        list-style-type: none;
+        margin: 0;
+        padding: 0
+    }
+
+        .multiselect-container .input-group {
+            margin: 5px
+        }
+
+        .multiselect-container > li {
+            padding: 0
+        }
+
+            .multiselect-container > li > a.multiselect-all label {
+                font-weight: 700
+            }
+
+            .multiselect-container > li.multiselect-group label {
+                margin: 0;
+                padding: 3px 20px 3px 20px;
+                height: 100%;
+                font-weight: 700
+            }
+
+            .multiselect-container > li.multiselect-group-clickable label {
+                cursor: pointer
+            }
+
+            .multiselect-container > li > a {
+                padding: 0
+            }
+
+                .multiselect-container > li > a > label {
+                    margin: 0;
+                    height: 100%;
+                    cursor: pointer;
+                    font-weight: 400;
+                    padding: 3px 0 3px 30px
+                }
+
+                    .multiselect-container > li > a > label.radio, .multiselect-container > li > a > label.checkbox {
+                        margin: 0
+                    }
+
+                    .multiselect-container > li > a > label > input[type=checkbox] {
+                        margin-bottom: 5px
+                    }
+
+    .btn-group > .btn-group:nth-child(2) > .multiselect.btn {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px
+    }
+
+    .form-inline .multiselect-container label.checkbox, .form-inline .multiselect-container label.radio {
+        padding: 3px 20px 3px 40px
+    }
+
+    .form-inline .multiselect-container li a label.checkbox input[type=checkbox], .form-inline .multiselect-container li a label.radio input[type=radio] {
+        margin-left: -20px;
+        margin-right: 0
+    }
 

@@ -11,5 +11,7 @@ namespace TeleconApp.Interfaces
     {
         List<EmployeeModel> GetAllEmployees();
         List<VehicleModel> GetAllVehicles();
+        List<NetworkModel> GetAllNetworks();
+        List<EnclosureModel> GetAllEnclosures();
     }
 }

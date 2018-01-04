@@ -51,5 +51,44 @@ namespace TeleconApp.Implementation
                 throw;
             }
         }
+        public List<NetworkModel> GetAllNetworks()
+        {
+            try
+            {
+                List<NetworkModel> networks = _db.Networks.Select(r => new NetworkModel
+                {
+                    Id = r.Id,
+                    BellNetworkNumber = r.BellNetworkNumber,
+                    District = r.District,
+                    LocationName = r.LocationName,
+                    MaxARB = r.MaxARB,
+                    PermitTypeStream = r.PermitTypeStream,
+                    UtilityCutPermit = r.UtilityCutPermit
+                }).ToList();
+                return networks;
+            }
+            catch (Exception ex)
+            {
+                string error = ex.Message;
+                throw;
+            }
+        }
+        public List<EnclosureModel> GetAllEnclosures()
+        {
+            try
+            {
+                List<EnclosureModel> enclosures = _db.Enclosures.Select(r => new EnclosureModel
+                {
+                    Id = r.Id,
+                    Name = r.Name
+                }).ToList();
+                return enclosures;
+            }
+            catch (Exception ex)
+            {
+                string error = ex.Message;
+                throw;
+            }
+        }
     }
 }

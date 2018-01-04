@@ -22,6 +22,8 @@ namespace TeleconApp.Controllers
             SplicerModel sm = new SplicerModel();
             sm.Employees = _splicer.GetAllEmployees();
             sm.Vehicles = _splicer.GetAllVehicles();
+            sm.Networks = _splicer.GetAllNetworks();
+            sm.Enclosures = _splicer.GetAllEnclosures();
             return View(sm);
         }
         public ActionResult Test()

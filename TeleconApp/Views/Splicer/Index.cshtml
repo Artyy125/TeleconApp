@@ -56,9 +56,9 @@
                                     <select name="LeadName" class="dropdown form-control" id="LeadName">
                                         <option></option>
                                         @foreach (var item in Model.Employees)
-    {
-                                    <option value="@item.Id">@item.TechName</option>
-}
+                                        {
+                                            <option value="@item.Id">@item.TechName</option>
+                                        }
                                     </select>
                                 </div>
                             </div>
@@ -106,7 +106,13 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-5" for="BellNetworkNumber">Bell Network#:</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="BellNetworkNumber" placeholder="Bell Network#" name="BellNetworkNumber">
+                                    <select name="BellNetworkNumber" class="dropdown form-control" id="BellNetworkNumber">
+                                        <option></option>
+                                        @foreach (var item in Model.Networks)
+                                        {
+                                            <option value="@item.Id">@item.BellNetworkNumber</option>
+                                        }
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +120,12 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-5" for="PartnersName">Partner(s) Name:</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="PartnersName" placeholder="Partner(s) Name" name="PartnersName">
+                                    <select id="PartnersName" class="multiselect-ui form-control" multiple="multiple" name="PartnersName">
+                                        @foreach (var item in Model.Employees)
+                                        {
+                                            <option value="@item.Id">@item.TechName</option>
+                                        }
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -127,30 +138,36 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-5" for="EnclosureName">Prepped Enclosure:</label>
                                 <div class="col-sm-7">
-                                    <input type="number" class="form-control" id="EnclosureName" placeholder="Prepped Enclosure" name="EnclosureName">
+                                    <select name="EnclosureName" class="dropdown form-control" id="EnclosureName">
+                                        <option></option>
+                                        @foreach (var item in Model.Enclosures)
+                                        {
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
+                                    </select>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="control-label col-sm-5" for="time">ARB:</label>
+                                <label class="control-label col-sm-5" for="time">ARB/MH:</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="ARB" placeholder="ARB" name="ARB">
+                                    <input type="text" maxlength="7" class="form-control" id="ARB" placeholder="ARB/MH" name="ARB">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-5">
+                        <div class="col-md-5 col-xs-5">
                             <div class="form-group">
                                 <label class="control-label" for="time">Enter Cable Id Done (eg, AO,BA, D2)  then  select relevant item:</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-11">
+                        <div class="col-md-11 col-xs-11">
                             <div class="form-group wrapper">
-                                <table class="table-responsive" style="text-align:center">
+                                <table id="SplicerTable" class="table-responsive" style="text-align:center">
                                     <tr>
                                         <th>No</th>
                                         <th>Cable Id</th>
@@ -165,7 +182,7 @@
                                     {
                                         <tr>
                                             <td width="30"><label>@(i + 1)</label></td>
-                                            <td width="100"><input type="text" class="form-control" id="SplicerCable@(i + 1)" name="SplicerCable@(i + 1)"></td>
+                                            <td class="col-xs-3 col-sm-3" width="100"><input type="text" class="form-control" id="SplicerCable@(i + 1)" name="SplicerCable@(i + 1)"></td>
                                             <td width="60"><input maxlength="5" type="text" class="form-control SplicerCable@(i + 1)" onkeyup="this.value=this.value.replace(/[^\d]/,'')" id="SplicerNoFibre@(i + 1)" name="SplicerNoFibre@(i + 1)" disabled></td>
                                             <td><input type="checkbox" class="form-control SplicerCable@(i + 1)" id="SplicerPrepped@(i + 1)" name="SplicerPrepped@(i + 1)" disabled></td>
                                             <td><input type="checkbox" class="form-control SplicerCable@(i + 1)" id="SplicerDeRebonized@(i + 1)" name="SplicerDeRebonized@(i + 1)" disabled></td>
@@ -198,5 +215,6 @@
         </div>
     </div>
 </div>
+<script src="~/Scripts/MultiSelectDropDown.js"></script>
 <script src="~/Scripts/Myscript.js"></script>
 
