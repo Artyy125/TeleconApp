@@ -26,6 +26,7 @@ namespace TeleconApp.EFModel
         public DbSet<VacTruck> VackTrucks { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<EmployeeDivision> EmployeeDivisions { get; set; }
+        public DbSet<AspNetUsers> AspNetUsers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

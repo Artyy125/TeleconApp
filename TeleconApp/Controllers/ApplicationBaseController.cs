@@ -20,7 +20,8 @@ namespace TeleconApp.Controllers
                 {
                     var user = context.Users.SingleOrDefault(u => u.UserName == username);
                     string fullName =  user.TechName;
-                    ViewData.Add("FullName", fullName);
+                    ViewData.Add("FullName", user.TechName);
+                    ViewData.Add("UserName", user.UserName);
                 }
             }
             base.OnActionExecuted(filterContext);

@@ -21,7 +21,7 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-5" for="Id">Employment Id:</label>
                                 <div class="col-sm-7">
-                                    <input type="number" class="form-control" id="Id" placeholder="Enter Employment Id" name="Id">
+                                    <input type="number" class="form-control" id="Id" placeholder="Enter Employment Id" value=@ViewData["UserName"] name="Id">
                                 </div>
                             </div>
                         </div>
@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-5" for="TechName">Tech Name:</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="TechName" placeholder="Enter Tech Name" name="TechName">
+                                    <input type="text" maxlength="50" class="form-control" id="TechName" placeholder="Enter Tech Name" value="@ViewData["FullName"]" name="TechName">
                                 </div>
                             </div>
                         </div>
@@ -39,7 +39,13 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-5" for="ForemanName">Foreman Name:</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="ForemanName" placeholder="Foreman Name" name="ForemanName">
+                                    <select name="ForemanName" class="dropdown form-control" id="ForemanName">
+                                        <option></option>
+                                        @foreach (var item in Model.Employees)
+    {
+                                    <option value="@item.Id">@item.TechName</option>
+}
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +53,13 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-5" for="LeadName">Lead Name:</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="LeadName" placeholder="Lead Name" name="LeadName">
+                                    <select name="LeadName" class="dropdown form-control" id="LeadName">
+                                        <option></option>
+                                        @foreach (var item in Model.Employees)
+    {
+                                    <option value="@item.Id">@item.TechName</option>
+}
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -57,7 +69,13 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-5" for="PlateNumber">Vehicle/Truck ID:</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="PlateNumber" placeholder="Foreman Name" name="PlateNumber">
+                                    <select name="PlateNumber" class="dropdown form-control" id="PlateNumber">
+                                        <option></option>
+                                        @foreach (var item in Model.Vehicles)
+                                        {
+                                            <option value="@item.Id">@item.PlateNumber</option>
+                                        }
+                                    </select>
                                 </div>
                             </div>
                         </div>
