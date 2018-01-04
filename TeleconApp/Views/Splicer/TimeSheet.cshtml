@@ -15,7 +15,8 @@
         </div>
         <div class="col-md-9">
             <form class="form-horizontal" action="/Splicer/Save">
-                <label>Basic Info</label>
+                @Html.Partial("/Views/Partials/_BasicInfo.cshtml", Model)
+                <label>Time Sheet</label>
                 <div class="panel panel-group panel-info">
                     <div class="row">
                         <div class="col-md-5">

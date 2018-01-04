@@ -1,5 +1,4 @@
-﻿
-@model TeleconApp.Models.SplicerModel
+﻿@model TeleconApp.Models.SplicerModel
 <style>
     .wrapper {
         position: relative;
@@ -15,94 +14,8 @@
         </div>
         <div class="col-md-9">
             <form class="form-horizontal" action="/Splicer/Save">
-                <label>Basic Info</label>
-                <div class="panel panel-group panel-info">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="control-label col-sm-5" for="Id">Employment Id:</label>
-                                <div class="col-sm-7">
-                                    <input type="number" class="form-control" id="Id" placeholder="Enter Employment Id" name="Id">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="control-label col-sm-5" for="TechName">Tech Name:</label>
-                                <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="TechName" placeholder="Enter Tech Name" name="TechName">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="control-label col-sm-5" for="ForemanName">Foreman Name:</label>
-                                <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="ForemanName" placeholder="Foreman Name" name="ForemanName">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="control-label col-sm-5" for="LeadName">Lead Name:</label>
-                                <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="LeadName" placeholder="Lead Name" name="LeadName">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="control-label col-sm-5" for="PlateNumber">Vehicle/Truck ID:</label>
-                                <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="PlateNumber" placeholder="Foreman Name" name="PlateNumber">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <label>Today Job Done</label>
-                <div class="panel panel-group panel-info">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="control-label col-sm-5" for="Date">Date:</label>
-                                <div class="col-sm-7">
-                                    <input type="text" id="SplicerDate" placeholder="@DateTime.Now.ToShortDateString()" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="control-label col-sm-5" for="time">On Duty Time:</label>
-                                <div class="col-sm-7">
-                                    <input id="SplicerTime" type="text" placeholder="02:00" class="form-control input-small">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="control-label col-sm-5" for="BellNetworkNumber">Bell Network#:</label>
-                                <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="BellNetworkNumber" placeholder="Bell Network#" name="BellNetworkNumber">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="control-label col-sm-5" for="PartnersName">Partner(s) Name:</label>
-                                <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="PartnersName" placeholder="Partner(s) Name" name="PartnersName">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @Html.Partial("/Views/Partials/_BasicInfo.cshtml", Model)
+                @Html.Partial("/Views/Partials/_JobDone.cshtml", Model)
                 <label>Testing</label>
                 <div class="panel panel-group panel-info">
                     <div class="row">
@@ -126,17 +39,17 @@
                                         <th>Re-Bern/ faulty</th>
                                     </tr>
                                     @for (int i = 0; i < 7; i++)
-                                    {
-                                    <tr>
-                                        <td width="30"><label>@(i + 1)</label></td>
-                                        <td width="70"><input maxlength="5" type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\d]/,'')" id="STARB@(i+1)" name="STARB@(i+1)" ></td>
-                                        <td><input type="radio" class="form-control STARB@(i+1)" id="STGLB@(i+1)" name="SPTesting@(i+1)" disabled ></td>
-                                        <td><input type="radio" class="form-control STARB@(i+1)" id="STAerialRoadSide@(i+1)" name="SPTesting@(i+1)" disabled></td>
-                                        <td><input type="radio" class="form-control STARB@(i+1)" id="STAerialBackyard@(i+1)" name="SPTesting@(i+1)" disabled></td>
-                                        <td><input type="radio" class="form-control STARB@(i+1)" id="STPedestal@(i+1)" name="SPTesting@(i+1)" disabled></td>
-                                        <td><input type="radio" class="form-control STARB@(i+1)" id="STReburn@(i+1)" name="SPTesting@(i+1)" disabled></td>
-                                    </tr>
-                                    }
+                        {
+                            <tr>
+                                <td width="30"><label>@(i + 1)</label></td>
+                                <td width="70"><input maxlength="5" type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\d]/,'')" id="STARB@(i+1)" name="STARB@(i+1)"></td>
+                                <td><input type="radio" class="form-control STARB@(i+1)" id="STGLB@(i+1)" name="SPTesting@(i+1)" disabled></td>
+                                <td><input type="radio" class="form-control STARB@(i+1)" id="STAerialRoadSide@(i+1)" name="SPTesting@(i+1)" disabled></td>
+                                <td><input type="radio" class="form-control STARB@(i+1)" id="STAerialBackyard@(i+1)" name="SPTesting@(i+1)" disabled></td>
+                                <td><input type="radio" class="form-control STARB@(i+1)" id="STPedestal@(i+1)" name="SPTesting@(i+1)" disabled></td>
+                                <td><input type="radio" class="form-control STARB@(i+1)" id="STReburn@(i+1)" name="SPTesting@(i+1)" disabled></td>
+                            </tr>
+            }
                                 </table>
                             </div>
                         </div>
@@ -162,6 +75,7 @@
     </div>
 </div>
 <script src="~/Scripts/Myscript.js"></script>
+<script src="~/Scripts/MultiSelectDropDown.js"></script>
 
 
 

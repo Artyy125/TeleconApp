@@ -1,0 +1,51 @@
+﻿@model TeleconApp.Models.SplicerModel
+<label>Today Job Done</label>
+<div class="panel panel-group panel-info">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label class="control-label col-sm-5" for="Date">Date:</label>
+                <div class="col-sm-7">
+                    <input type="text" id="SplicerDate" placeholder="@DateTime.Now.ToShortDateString()" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label class="control-label col-sm-5" for="time">On Duty Time:</label>
+                <div class="col-sm-7">
+                    <input id="SplicerTime" type="text" placeholder="02:00" class="form-control input-small">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label class="control-label col-sm-5" for="BellNetworkNumber">Bell Network#:</label>
+                <div class="col-sm-7">
+                    <select name="BellNetworkNumber" class="dropdown form-control" id="BellNetworkNumber">
+                        <option></option>
+                        @foreach (var item in Model.Networks)
+                        {
+                            <option value="@item.Id">@item.BellNetworkNumber</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label class="control-label col-sm-5" for="PartnersName">Partner(s) Name:</label>
+                <div class="col-sm-7">
+                    <select id="PartnersName" class="multiselect-ui form-control" multiple="multiple" name="PartnersName">
+                        @foreach (var item in Model.Employees)
+                        {
+                            <option value="@item.Id">@item.TechName</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

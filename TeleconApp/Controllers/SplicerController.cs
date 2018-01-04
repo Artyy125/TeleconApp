@@ -29,14 +29,19 @@ namespace TeleconApp.Controllers
         public ActionResult Test()
         {
             SplicerModel sm = new SplicerModel();
+            sm.Employees = _splicer.GetAllEmployees();
+            sm.Vehicles = _splicer.GetAllVehicles();
+            sm.Networks = _splicer.GetAllNetworks();
+            sm.Enclosures = _splicer.GetAllEnclosures();
 
-            return View();
+            return View(sm);
         }
         public ActionResult TimeSheet()
         {
             SplicerModel sm = new SplicerModel();
-
-            return View();
+            sm.Employees = _splicer.GetAllEmployees();
+            sm.Vehicles = _splicer.GetAllVehicles();
+            return View(sm);
         }
     }
 }

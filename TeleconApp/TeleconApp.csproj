@@ -455,6 +455,8 @@
     <Content Include="Views\Partials\_LeftMenu.cshtml" />
     <Content Include="Views\Splicer\Test.cshtml" />
     <Content Include="Views\Splicer\TimeSheet.cshtml" />
+    <Content Include="Views\Partials\_BasicInfo.cshtml" />
+    <Content Include="Views\Partials\_JobDone.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
