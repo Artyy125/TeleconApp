@@ -1,34 +1,15 @@
 ﻿@{
     var controllerName = ViewContext.RouteData.GetRequiredString("controller");
     var actionName = ViewContext.RouteData.GetRequiredString("action");
-}
-@*<style>
-    .vertical-menu {
-        width: 200px;
+    if (actionName.StartsWith("SaveSplicer") && ViewBag.SplicerSave == "Success")
+    {
+        actionName = "Test";
     }
-
-        .vertical-menu a {
-            background-color: #eee;
-            color: black;
-            display: block;
-            padding: 12px;
-            text-decoration: none;
-        }
-
-            .vertical-menu a:hover {
-                background-color: #ccc;
-            }
-
-            .vertical-menu a.active {
-                background-color: #4CAF50;
-                color: white;
-            }
-</style>
-<div class="vertical-menu">
-    <a href="/@controllerName/Index" class="@(@actionName == "Index" ? "active" : "")">Prep</a>
-    <a href="/@controllerName/Test" class="@(@actionName == "Test" ? "active" : "")">Test</a>
-    <a href="/@controllerName/TimeSheet" class="@(@actionName == "TimeSheet" ? "active" : "")">Time Sheet</a>
-</div>*@
+    else
+    {
+        actionName = "Index";
+    }
+}
 <style>
     #leftMenu {
         list-style-type: none;
