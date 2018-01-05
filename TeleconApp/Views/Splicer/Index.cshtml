@@ -9,12 +9,14 @@
 </style>
 <div class="panel panel-body">
     <div class="row">
-        <div class="panel panel-body col-md-3">
-            @Html.Partial("/Views/Partials/_LeftMenu.cshtml")
-        </div>
         <div class="col-md-9">
             <form class="form-horizontal" action="/Splicer/Save">
                 @Html.Partial("/Views/Partials/_BasicInfo.cshtml", Model)
+                <div class="row">
+                    <div class="panel panel-body col-md-4">
+                        @Html.Partial("/Views/Partials/_LeftMenu.cshtml")
+                    </div>
+                </div>
                 @Html.Partial("/Views/Partials/_JobDone.cshtml", Model)
                 <label>Preparation</label>
                 <div class="panel panel-group panel-info">
