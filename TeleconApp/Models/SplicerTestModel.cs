@@ -6,7 +6,7 @@ using System.Web;
 
 namespace TeleconApp.Models
 {
-    public class SplicerModel
+    public class SplicerTestModel
     {
         public List<EmployeeModel> Employees { get; set; }
         public List<VehicleModel> Vehicles { get; set; }
@@ -81,27 +81,20 @@ namespace TeleconApp.Models
         public DateTime SubmitDate { get; set; }
         public string TestComment { get; set; }
         public string TimeSheetComment { get; set; }
-        public string STARB1 { get; set; }
+        public string TestARB1 { get; set; }
+        public bool STARB1 { get; set; }
         public string SPTesting1 { get; set; }
-        public string STARB2 { get; set; }
+        public bool STARB2 { get; set; }
         public string SPTesting2 { get; set; }
-        public string STARB3 { get; set; }
+        public bool STARB3 { get; set; }
         public string SPTesting3 { get; set; }
-        public string STARB4 { get; set; }
+        public bool STARB4 { get; set; }
         public string SPTesting4 { get; set; }
-        public string STARB5 { get; set; }
+        public bool STARB5 { get; set; }
         public string SPTesting5 { get; set; }
-        public string STARB6 { get; set; }
+        public bool STARB6 { get; set; }
         public string SPTesting6 { get; set; }
-        public string STARB7 { get; set; }
+        public bool STARB7 { get; set; }
         public string SPTesting7 { get; set; }
-        public DateTime JobStart { get; set; }
-        public DateTime JobFinishAtSite { get; set; }
-        public DateTime ArriveAtShop { get; set; }
-        public DateTime JobFinish { get; set; }
-        public DateTime TimeSheetDate { get; set; }
-        public string Odometer { get; set; }
-
-
     }
 }

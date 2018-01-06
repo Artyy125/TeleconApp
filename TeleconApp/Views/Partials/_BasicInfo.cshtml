@@ -24,11 +24,11 @@
             <div class="form-group">
                 <label class="control-label col-sm-5" for="ForemanName">Foreman Name:</label>
                 <div class="col-sm-7">
-                    <select name="ForemanName" class="dropdown form-control" id="ForemanName">
+                    <select name="Foreman" class="dropdown form-control" id="Foreman">
                         <option></option>
                         @foreach (var item in Model.Employees)
                         {
-                            <option value="@item.Id">@item.TechName</option>
+                            <option value="@item.TechName">@item.TechName</option>
                         }
                     </select>
                 </div>
@@ -38,11 +38,11 @@
             <div class="form-group">
                 <label class="control-label col-sm-5" for="LeadName">Lead Name:</label>
                 <div class="col-sm-7">
-                    <select name="LeadName" class="dropdown form-control" id="LeadName">
+                    <select name="Lead" class="dropdown form-control" id="Lead">
                         <option></option>
                         @foreach (var item in Model.Employees)
                         {
-                            <option value="@item.Id">@item.TechName</option>
+                            <option value="@item.TechName">@item.TechName</option>
                         }
                     </select>
                 </div>
@@ -58,7 +58,7 @@
                         <option></option>
                         @foreach (var item in Model.Vehicles)
                         {
-                            <option value="@item.Id">@item.PlateNumber</option>
+                            <option value="@item.PlateNumber">@item.PlateNumber</option>
                         }
                     </select>
                 </div>

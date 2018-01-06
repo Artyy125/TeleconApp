@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="col-md-9">
-            <form id="SplicerForm" class="form-horizontal" action="/Splicer/SaveSplicer" method="post">
+            <form id="SplicerForm" class="form-horizontal" action="/Splicer/Index" method="post">
                 @Html.Partial("/Views/Partials/_BasicInfo.cshtml", Model)
                 <div class="row">
                     <div class="panel panel-body col-md-4">
@@ -35,7 +35,7 @@
                                         <option></option>
                                         @foreach (var item in Model.Enclosures)
                                         {
-                                            <option value="@item.Id">@item.Name</option>
+                                            <option value="@item.Name">@item.Name</option>
                                         }
                                     </select>
                                 </div>

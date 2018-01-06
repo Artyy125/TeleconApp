@@ -13,5 +13,8 @@ namespace TeleconApp.Interfaces
         List<VehicleModel> GetAllVehicles();
         List<NetworkModel> GetAllNetworks();
         List<EnclosureModel> GetAllEnclosures();
+        int SaveSplicer(SplicerModel model);
+        int SaveSplicerTest(SplicerModel model);
+        int SaveSplicerTimesheet(SplicerModel model);
     }
 }

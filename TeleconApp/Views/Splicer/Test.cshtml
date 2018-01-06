@@ -7,10 +7,16 @@
         /*these 5 settings change the base (or registration) point of the wrapper object to it's own center - so we align child center with parent center*/
     }
 </style>
+@Html.AntiForgeryToken()
 <div class="panel panel-body">
     <div class="row">
+        <div class="row">
+            <div class="col-sm-6">
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+            </div>
+        </div>
         <div class="col-md-9">
-            <form class="form-horizontal" action="/Splicer/Save">
+            <form class="form-horizontal" action="/Splicer/Test" method="post">
                 @Html.Partial("/Views/Partials/_BasicInfo.cshtml", Model)
                 <div class="row">
                     <div class="panel panel-body col-md-4">
@@ -41,17 +47,17 @@
                                         <th>Re-Bern/ faulty</th>
                                     </tr>
                                     @for (int i = 0; i < 7; i++)
-                    {
-                        <tr>
-                            <td width="30"><label>@(i + 1)</label></td>
-                            <td width="70"><input maxlength="5" type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\d]/,'')" id="STARB@(i+1)" name="STARB@(i+1)"></td>
-                            <td><input type="radio" class="form-control STARB@(i+1)" id="STGLB@(i+1)" name="SPTesting@(i+1)" disabled></td>
-                            <td><input type="radio" class="form-control STARB@(i+1)" id="STAerialRoadSide@(i+1)" name="SPTesting@(i+1)" disabled></td>
-                            <td><input type="radio" class="form-control STARB@(i+1)" id="STAerialBackyard@(i+1)" name="SPTesting@(i+1)" disabled></td>
-                            <td><input type="radio" class="form-control STARB@(i+1)" id="STPedestal@(i+1)" name="SPTesting@(i+1)" disabled></td>
-                            <td><input type="radio" class="form-control STARB@(i+1)" id="STReburn@(i+1)" name="SPTesting@(i+1)" disabled></td>
-                        </tr>
-    }
+                                {
+                                    <tr>
+                                        <td width="30"><label>@(i + 1)</label></td>
+                                        <td width="70"><input maxlength="5" type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\d]/,'')" id="STARB@(i+1)" name="STARB@(i+1)"></td>
+                                        <td><input type="radio" class="form-control STARB@(i+1)" value="GLB" id="STGLB@(i+1)" name="SPTesting@(i+1)" disabled></td>
+                                        <td><input type="radio" class="form-control STARB@(i+1)" value="AerialRoadSide" id="STAerialRoadSide@(i+1)" name="SPTesting@(i+1)" disabled></td>
+                                        <td><input type="radio" class="form-control STARB@(i+1)" value="AerialBackyard" id="STAerialBackyard@(i+1)" name="SPTesting@(i+1)" disabled></td>
+                                        <td><input type="radio" class="form-control STARB@(i+1)" value="Pedestal" id="STPedestal@(i+1)" name="SPTesting@(i+1)" disabled></td>
+                                        <td><input type="radio" class="form-control STARB@(i+1)" value="Reburn" id="STReburn@(i+1)" name="SPTesting@(i+1)" disabled></td>
+                                    </tr>
+                            }
                                 </table>
                             </div>
                         </div>

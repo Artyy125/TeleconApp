@@ -24,10 +24,44 @@ namespace TeleconApp.Controllers
             SplicerModel sm = getSplicerData();
             return View(sm);
         }
+        [HttpPost]
+        public ActionResult Index(SplicerModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                int id = _splicer.SaveSplicer(model);
+                model = getSplicerData();
+                ViewBag.SplicerSave = "Success";
+                return View(model);
+            }
+            else
+            {
+                model = getSplicerData();
+                return View(model);
+            }
+
+        }
         public ActionResult Test()
         {
             SplicerModel sm = getSplicerData();
             return View(sm);
+        }
+        [HttpPost]
+        public ActionResult Test(SplicerModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                int id = _splicer.SaveSplicerTest(model);
+                model = getSplicerData();
+                ViewBag.SplicerSave = "Success";
+                return View(model);
+            }
+            else
+            {
+                model = getSplicerData();
+                return View(model);
+            }
+
         }
         public ActionResult TimeSheet()
         {
@@ -35,18 +69,19 @@ namespace TeleconApp.Controllers
             return View(sm);
         }
         [HttpPost]
-        public ViewResult SaveSplicer(SplicerModel model)
+        public ActionResult TimeSheet(SplicerModel model)
         {
             if (ModelState.IsValid)
             {
-                model  = getSplicerData();
+                int id = _splicer.SaveSplicerTimesheet(model);
+                model = getSplicerData();
                 ViewBag.SplicerSave = "Success";
-                return View("Test",model);
+                return View(model);
             }
             else
             {
                 model = getSplicerData();
-                return View("Index",model);
+                return View(model);
             }
 
         }

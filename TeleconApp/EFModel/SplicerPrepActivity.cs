@@ -11,14 +11,16 @@ namespace TeleconApp.EFModel
         [Key]
         public int Id { get; set; }
         public int EmployeeId { get; set; }
-        public int Foreman { get; set; }
-        public int Leader { get; set; }
-        public int EnclosureId { get; set; }
+        public string TechName { get; set; }
+        public string Foreman { get; set; }
+        public string Leader { get; set; }
+        public string EnclosureId { get; set; }
         public string ARB { get; set; }
         public DateTime JobStart { get; set; }
         public DateTime JobFinishAtSite { get; set; }
         public DateTime ArriveAtShop { get; set; }
         public DateTime JobFinish { get; set; }
+        public DateTime TimeSheetDate { get; set; }
         public DateTime PreparationTime { get; set; }
         public string Odometer { get; set; }
         public string TimeSheetComment { get; set; }
