@@ -20,6 +20,7 @@ namespace TeleconApp.EFModel
         public DbSet<Enclosure> Enclosures { get; set; }
         public DbSet<Network> Networks { get; set; }
         public DbSet<SplicerCableActivity> SplicerCableActivities { get; set; }
+        public DbSet<SplicerTestActivity> SplicerTestActivities { get; set; }
         public DbSet<SplicerPrepActivity> SplicerPrepActivities { get; set; }
         public DbSet<SplicingPrep> SplicerPreps { get; set; }
         public DbSet<SplicingTest> SplicerTests { get; set; }

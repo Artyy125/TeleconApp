@@ -93,7 +93,7 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-5" for="time">Enter Time:</label>
                                 <div class="col-sm-7">
-                                    <input id="SplicerEnterTime" type="text" placeholder="02:00" class="form-control input-small">
+                                    <input id="SplicerEnterTime" name="SplicerEnterTime" type="text" placeholder="02:00" class="form-control input-small">
                                 </div>
                             </div>
                         </div>
@@ -108,21 +108,20 @@
         </div>
     </div>
 </div>
-<script src="~/Scripts/MultiSelectDropDown.js"></script>
 <script src="~/Scripts/Myscript.js"></script>
 <script>
-    $(document).ready(function () {
-        var formData = $(form).serialize();
+    $('#SplicerForm').on('submit', function (event) {
+        event.preventDefault();
+        var formData = $("#SplicerForm").serialize();
         // Submit the form using AJAX.
         $.ajax({
             type: 'POST',
-            url: $(form).attr('action'),
+            url: $("#SplicerForm").attr('action'),
             data: formData,
             success: function (result) {
                 $('#SplicerForm').html(result);
             }
         });
-    }
-
+    });
 </script>
 

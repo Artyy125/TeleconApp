@@ -46,7 +46,7 @@ namespace TeleconApp.Controllers
             return View(sm);
         }
         [HttpPost]
-        public ActionResult SaveSplicer(SplicerModel model)
+        public ViewResult SaveSplicer(SplicerModel model)
         {
             if (ModelState.IsValid)
             {

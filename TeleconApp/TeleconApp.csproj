@@ -224,6 +224,7 @@
     <Compile Include="EFModel\Network.cs" />
     <Compile Include="EFModel\SplicerCableActivity.cs" />
     <Compile Include="EFModel\SplicerPrepActivity.cs" />
+    <Compile Include="EFModel\SplicerTestActivity.cs" />
     <Compile Include="EFModel\SplicingPrep.cs" />
     <Compile Include="EFModel\SplicingTest.cs" />
     <Compile Include="EFModel\TeleconDbContext.cs" />
@@ -257,6 +258,22 @@
     <Compile Include="Migrations\201801041642307_EmployeeId.cs" />
     <Compile Include="Migrations\201801041642307_EmployeeId.Designer.cs">
       <DependentUpon>201801041642307_EmployeeId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801061451590_PrepActivity.cs" />
+    <Compile Include="Migrations\201801061451590_PrepActivity.Designer.cs">
+      <DependentUpon>201801061451590_PrepActivity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801061503334_PrepActivity2.cs" />
+    <Compile Include="Migrations\201801061503334_PrepActivity2.Designer.cs">
+      <DependentUpon>201801061503334_PrepActivity2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801061506342_splicerTestActivity.cs" />
+    <Compile Include="Migrations\201801061506342_splicerTestActivity.Designer.cs">
+      <DependentUpon>201801061506342_splicerTestActivity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801061510106_spliceractivity3.cs" />
+    <Compile Include="Migrations\201801061510106_spliceractivity3.Designer.cs">
+      <DependentUpon>201801061510106_spliceractivity3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Identity\201801031732471_EmployeeId.cs" />
@@ -485,6 +502,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801041642307_EmployeeId.resx">
       <DependentUpon>201801041642307_EmployeeId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801061451590_PrepActivity.resx">
+      <DependentUpon>201801061451590_PrepActivity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801061503334_PrepActivity2.resx">
+      <DependentUpon>201801061503334_PrepActivity2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801061506342_splicerTestActivity.resx">
+      <DependentUpon>201801061506342_splicerTestActivity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801061510106_spliceractivity3.resx">
+      <DependentUpon>201801061510106_spliceractivity3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Identity\201801031732471_EmployeeId.resx">
       <DependentUpon>201801031732471_EmployeeId.cs</DependentUpon>

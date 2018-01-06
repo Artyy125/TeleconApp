@@ -1,5 +1,7 @@
 ﻿$(function () {
-    $("#SplicerDate").datepicker();
+    $("#SplicerDate").datepicker({
+        maxDate: 0
+    });
 });
 $('#SplicerTime').timepicker({
     maxHours: 24,

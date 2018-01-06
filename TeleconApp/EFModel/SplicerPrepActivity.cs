@@ -19,11 +19,12 @@ namespace TeleconApp.EFModel
         public DateTime JobFinishAtSite { get; set; }
         public DateTime ArriveAtShop { get; set; }
         public DateTime JobFinish { get; set; }
+        public DateTime PreparationTime { get; set; }
         public string Odometer { get; set; }
         public string Comment { get; set; }
-        public string PartnerName { get; set; }
-        public string BellNetworkNumber { get; set; }
         public string VehiclePlateNumber { get; set; }
+        public DateTime PrepSubmitDate { get; set; }
+        public DateTime TimeSheetSubmitDate { get; set; }
 
 
     }
