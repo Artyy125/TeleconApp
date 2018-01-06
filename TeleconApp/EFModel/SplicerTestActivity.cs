@@ -17,12 +17,9 @@ namespace TeleconApp.EFModel
         public bool AerialBackyard { get; set; }
         public bool Pedestal { get; set; }
         public bool ReBurn { get; set; }
-        public string PartnerName { get; set; }
-        public string BellNetworkNumber { get; set; }
-        public DateTime CompletedTime { get; set; }
-        public DateTime TodayJobDoneDate { get; set; }
-        public DateTime OnDutyTime { get; set; }
-        public DateTime SubmitDate { get; set; }
+        
+        
+        
 
     }
 }

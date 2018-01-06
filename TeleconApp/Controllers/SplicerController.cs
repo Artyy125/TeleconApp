@@ -21,28 +21,17 @@ namespace TeleconApp.Controllers
         // GET: Splicer
         public ActionResult Index()
         {
-            SplicerModel sm = new SplicerModel();
-            sm.Employees = _splicer.GetAllEmployees();
-            sm.Vehicles = _splicer.GetAllVehicles();
-            sm.Networks = _splicer.GetAllNetworks();
-            sm.Enclosures = _splicer.GetAllEnclosures();
+            SplicerModel sm = getSplicerData();
             return View(sm);
         }
         public ActionResult Test()
         {
-            SplicerModel sm = new SplicerModel();
-            sm.Employees = _splicer.GetAllEmployees();
-            sm.Vehicles = _splicer.GetAllVehicles();
-            sm.Networks = _splicer.GetAllNetworks();
-            sm.Enclosures = _splicer.GetAllEnclosures();
-
+            SplicerModel sm = getSplicerData();
             return View(sm);
         }
         public ActionResult TimeSheet()
         {
-            SplicerModel sm = new SplicerModel();
-            sm.Employees = _splicer.GetAllEmployees();
-            sm.Vehicles = _splicer.GetAllVehicles();
+            SplicerModel sm = getSplicerData();
             return View(sm);
         }
         [HttpPost]
@@ -50,19 +39,13 @@ namespace TeleconApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.Employees = _splicer.GetAllEmployees();
-                model.Vehicles = _splicer.GetAllVehicles();
-                model.Networks = _splicer.GetAllNetworks();
-                model.Enclosures = _splicer.GetAllEnclosures();
+                model  = getSplicerData();
                 ViewBag.SplicerSave = "Success";
                 return View("Test",model);
             }
             else
             {
-                model.Employees = _splicer.GetAllEmployees();
-                model.Vehicles = _splicer.GetAllVehicles();
-                model.Networks = _splicer.GetAllNetworks();
-                model.Enclosures = _splicer.GetAllEnclosures();
+                model = getSplicerData();
                 return View("Index",model);
             }
 
@@ -73,6 +56,19 @@ namespace TeleconApp.Controllers
             {
                 ModelState.AddModelError("", error);
             }
+        }
+        private SplicerModel getSplicerData()
+        {
+            SplicerModel sm = new SplicerModel();
+            sm.Employees = _splicer.GetAllEmployees();
+            sm.Employees.Sort((x, y) => x.TechName.CompareTo(y.TechName));
+            sm.Vehicles = _splicer.GetAllVehicles();
+            sm.Vehicles.Sort((x, y) => x.PlateNumber.CompareTo(y.PlateNumber));
+            sm.Networks = _splicer.GetAllNetworks();
+            sm.Networks.Sort((x, y) => x.BellNetworkNumber.CompareTo(y.BellNetworkNumber));
+            sm.Enclosures = _splicer.GetAllEnclosures();
+            sm.Enclosures.Sort((x, y) => x.Name.CompareTo(y.Name));
+            return sm;
         }
     }
 }

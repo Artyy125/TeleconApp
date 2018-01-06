@@ -21,10 +21,22 @@ namespace TeleconApp.EFModel
         public DateTime JobFinish { get; set; }
         public DateTime PreparationTime { get; set; }
         public string Odometer { get; set; }
-        public string Comment { get; set; }
+        public string TimeSheetComment { get; set; }
         public string VehiclePlateNumber { get; set; }
         public DateTime PrepSubmitDate { get; set; }
         public DateTime TimeSheetSubmitDate { get; set; }
+        public DateTime TestSubmitDate { get; set; }
+        public string TestComment { get; set; }
+        public string TestPartnerName { get; set; }
+        public string TestBellNetworkNumber { get; set; }
+        public DateTime TestCompletedTime { get; set; }
+        public DateTime TestTodayJobDoneDate { get; set; }
+        public DateTime TestOnDutyTime { get; set; }
+        public DateTime CableCompletedTime { get; set; }
+        public DateTime CableTodayJobDoneDate { get; set; }
+        public DateTime CableOnDutyTime { get; set; }
+        public string CablePartnerName { get; set; }
+        public string CableBellNetworkNumber { get; set; }
 
 
     }

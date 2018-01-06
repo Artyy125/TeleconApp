@@ -41,17 +41,17 @@
                                         <th>Re-Bern/ faulty</th>
                                     </tr>
                                     @for (int i = 0; i < 7; i++)
-                        {
-                            <tr>
-                                <td width="30"><label>@(i + 1)</label></td>
-                                <td width="70"><input maxlength="5" type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\d]/,'')" id="STARB@(i+1)" name="STARB@(i+1)"></td>
-                                <td><input type="radio" class="form-control STARB@(i+1)" id="STGLB@(i+1)" name="SPTesting@(i+1)" disabled></td>
-                                <td><input type="radio" class="form-control STARB@(i+1)" id="STAerialRoadSide@(i+1)" name="SPTesting@(i+1)" disabled></td>
-                                <td><input type="radio" class="form-control STARB@(i+1)" id="STAerialBackyard@(i+1)" name="SPTesting@(i+1)" disabled></td>
-                                <td><input type="radio" class="form-control STARB@(i+1)" id="STPedestal@(i+1)" name="SPTesting@(i+1)" disabled></td>
-                                <td><input type="radio" class="form-control STARB@(i+1)" id="STReburn@(i+1)" name="SPTesting@(i+1)" disabled></td>
-                            </tr>
-            }
+                    {
+                        <tr>
+                            <td width="30"><label>@(i + 1)</label></td>
+                            <td width="70"><input maxlength="5" type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\d]/,'')" id="STARB@(i+1)" name="STARB@(i+1)"></td>
+                            <td><input type="radio" class="form-control STARB@(i+1)" id="STGLB@(i+1)" name="SPTesting@(i+1)" disabled></td>
+                            <td><input type="radio" class="form-control STARB@(i+1)" id="STAerialRoadSide@(i+1)" name="SPTesting@(i+1)" disabled></td>
+                            <td><input type="radio" class="form-control STARB@(i+1)" id="STAerialBackyard@(i+1)" name="SPTesting@(i+1)" disabled></td>
+                            <td><input type="radio" class="form-control STARB@(i+1)" id="STPedestal@(i+1)" name="SPTesting@(i+1)" disabled></td>
+                            <td><input type="radio" class="form-control STARB@(i+1)" id="STReburn@(i+1)" name="SPTesting@(i+1)" disabled></td>
+                        </tr>
+    }
                                 </table>
                             </div>
                         </div>
@@ -62,6 +62,16 @@
                                 <label class="control-label col-sm-5" for="time">Enter Time:</label>
                                 <div class="col-sm-7">
                                     <input id="SplicerEnterTime" type="text" placeholder="02:00" class="form-control input-small">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5" for="Comment">Comment:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="TestComment" placeholder="Your Comment" name="TestComment">
                                 </div>
                             </div>
                         </div>

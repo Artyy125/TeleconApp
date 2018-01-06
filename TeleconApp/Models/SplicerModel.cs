@@ -79,5 +79,7 @@ namespace TeleconApp.Models
         public string SplicerMissing7 { get; set; }
         public DateTime SplicerEnterTime { get; set; }
         public DateTime SubmitDate { get; set; }
+        public string TestComment { get; set; }
+        public string TimeSheetComment { get; set; }
     }
 }

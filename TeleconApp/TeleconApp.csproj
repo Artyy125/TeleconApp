@@ -275,6 +275,14 @@
     <Compile Include="Migrations\201801061510106_spliceractivity3.Designer.cs">
       <DependentUpon>201801061510106_spliceractivity3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801061553555_addCommentField.cs" />
+    <Compile Include="Migrations\201801061553555_addCommentField.Designer.cs">
+      <DependentUpon>201801061553555_addCommentField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801061558381_updatePrepTable.cs" />
+    <Compile Include="Migrations\201801061558381_updatePrepTable.Designer.cs">
+      <DependentUpon>201801061558381_updatePrepTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Identity\201801031732471_EmployeeId.cs" />
     <Compile Include="Migrations\Identity\201801031732471_EmployeeId.Designer.cs">
@@ -514,6 +522,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801061510106_spliceractivity3.resx">
       <DependentUpon>201801061510106_spliceractivity3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801061553555_addCommentField.resx">
+      <DependentUpon>201801061553555_addCommentField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801061558381_updatePrepTable.resx">
+      <DependentUpon>201801061558381_updatePrepTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Identity\201801031732471_EmployeeId.resx">
       <DependentUpon>201801031732471_EmployeeId.cs</DependentUpon>
