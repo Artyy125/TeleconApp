@@ -168,3 +168,80 @@ $(function () {
         includeSelectAllOption: true
     });
 });
+$("#SplicerMissing1").on("click", function () {
+    if ($("#SplicerMissing1").is(":checked")) {
+        $(".SplicerCable1").prop('checked', false);
+        $(".SplicerCable1").prop("disabled", true);
+        $("#SplicerMissing1").prop('checked', true);
+        $("#SplicerMissing1").prop("disabled", false);
+    }
+    else {
+        $(".SplicerCable1").prop("disabled", false);
+    }
+});
+$("#SplicerMissing2").on("click", function () {
+    if ($("#SplicerMissing2").is(":checked")) {
+        $(".SplicerCable2").prop('checked', false);
+        $(".SplicerCable2").prop("disabled", true);
+        $("#SplicerMissing2").prop('checked', true);
+        $("#SplicerMissing2").prop("disabled", false);
+    }
+    else {
+        $(".SplicerCable2").prop("disabled", false);
+    }
+});
+$("#SplicerMissing3").on("click", function () {
+    if ($("#SplicerMissing3").is(":checked")) {
+        $(".SplicerCable3").prop('checked', false);
+        $(".SplicerCable3").prop("disabled", true);
+        $("#SplicerMissing3").prop('checked', true);
+        $("#SplicerMissing3").prop("disabled", false);
+    }
+    else {
+        $(".SplicerCable3").prop("disabled", false);
+    }
+});
+$("#SplicerMissing4").on("click", function () {
+    if ($("#SplicerMissing4").is(":checked")) {
+        $(".SplicerCable4").prop('checked', false);
+        $(".SplicerCable4").prop("disabled", true);
+        $("#SplicerMissing4").prop('checked', true);
+        $("#SplicerMissing4").prop("disabled", false);
+    }
+    else {
+        $(".SplicerCable4").prop("disabled", false);
+    }
+});
+$("#SplicerMissing5").on("click", function () {
+    if ($("#SplicerMissing5").is(":checked")) {
+        $(".SplicerCable5").prop('checked', false);
+        $(".SplicerCable5").prop("disabled", true);
+        $("#SplicerMissing5").prop('checked', true);
+        $("#SplicerMissing5").prop("disabled", false);
+    }
+    else {
+        $(".SplicerCable5").prop("disabled", false);
+    }
+});
+$("#SplicerMissing6").on("click", function () {
+    if ($("#SplicerMissing6").is(":checked")) {
+        $(".SplicerCable6").prop('checked', false);
+        $(".SplicerCable6").prop("disabled", true);
+        $("#SplicerMissing6").prop('checked', true);
+        $("#SplicerMissing6").prop("disabled", false);
+    }
+    else {
+        $(".SplicerCable6").prop("disabled", false);
+    }
+});
+$("#SplicerMissing7").on("click", function () {
+    if ($("#SplicerMissing7").is(":checked")) {
+        $(".SplicerCable7").prop('checked', false);
+        $(".SplicerCable7").prop("disabled", true);
+        $("#SplicerMissing7").prop('checked', true);
+        $("#SplicerMissing7").prop("disabled", false);
+    }
+    else {
+        $(".SplicerCable7").prop("disabled", false);
+    }
+});
