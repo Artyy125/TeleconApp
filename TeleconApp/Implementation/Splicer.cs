@@ -95,33 +95,46 @@ namespace TeleconApp.Implementation
         {
             try
             {
-                SplicerPrepActivity activity = new SplicerPrepActivity();
-                activity.EmployeeId = model.Id;
-                activity.Foreman = model.Foreman;
-                activity.Leader = model.Lead;
-                activity.VehiclePlateNumber = model.PlateNumber;
-                activity.PrepSubmitDate = DateTime.Now;
-                activity.CableTodayJobDoneDate = model.SplicerDate;
-                activity.CableOnDutyTime = model.SplicerTime;
-                activity.CableBellNetworkNumber = model.BellNetworkNumber;
-                string partners = "";
-                string lastItem = model.PartnersName.Last();
-                foreach (var item in model.PartnersName)
+                var result = _db.SplicerPrepActivities.Where(r => r.EmployeeId == model.Id && r.TestTodayJobDoneDate.Value.Day == DateTime.Now.Day && r.TestTodayJobDoneDate.Value.Month == DateTime.Now.Month && r.TestTodayJobDoneDate.Value.Year == DateTime.Now.Year).FirstOrDefault();
+                if (result == null)
                 {
-                    if (item != lastItem)
+                    result = _db.SplicerPrepActivities.Where(r => r.EmployeeId == model.Id && r.TimeSheetDate.Value.Day == DateTime.Now.Day && r.TimeSheetDate.Value.Month == DateTime.Now.Month && r.TimeSheetDate.Value.Year == DateTime.Now.Year).FirstOrDefault();
+                    if (result == null)
                     {
-                        partners = partners + item + ",";
-                    }
-                    else
-                    {
-                        partners = partners + item;
+                        result = _db.SplicerPrepActivities.Where(r => r.EmployeeId == model.Id && r.CableTodayJobDoneDate.Value.Day == DateTime.Now.Day && r.CableTodayJobDoneDate.Value.Month == DateTime.Now.Month && r.CableTodayJobDoneDate.Value.Year == DateTime.Now.Year).FirstOrDefault();
                     }
                 }
-                activity.CablePartnerName = partners;
-                activity.PreparationTime = model.SplicerEnterTime;
-                _db.SplicerPrepActivities.Add(activity);
-                _db.SaveChanges();
-                int id = activity.Id;
+                SplicerPrepActivity activity = new SplicerPrepActivity();
+                int id = 0;
+                if (result == null)
+                {
+                    activity.EmployeeId = model.Id;
+                    activity.Foreman = model.Foreman;
+                    activity.Leader = model.Lead;
+                    activity.VehiclePlateNumber = model.PlateNumber;
+                    activity.PrepSubmitDate = DateTime.Now;
+                    activity.CableTodayJobDoneDate = model.SplicerDate;
+                    activity.CableOnDutyTime = model.SplicerTime;
+                    activity.CableBellNetworkNumber = model.BellNetworkNumber;
+                    string partners = "";
+                    string lastItem = model.PartnersName.Last();
+                    foreach (var item in model.PartnersName)
+                    {
+                        if (item != lastItem)
+                        {
+                            partners = partners + item + ",";
+                        }
+                        else
+                        {
+                            partners = partners + item;
+                        }
+                    }
+                    activity.CablePartnerName = partners;
+                    activity.PreparationTime = model.SplicerEnterTime.Value;
+                    _db.SplicerPrepActivities.Add(activity);
+                    _db.SaveChanges();
+                }
+                id = activity.Id;
                 if (model.SplicerCable1?.Trim() != "")
                 {
                     SplicerCableActivity cableActivity = new SplicerCableActivity();
@@ -148,7 +161,7 @@ namespace TeleconApp.Implementation
                     cableActivity.SplicerPrepActivityId = id;
                     _db.SplicerCableActivities.Add(cableActivity);
                 }
-                if (model.SplicerCable3?.Trim() != "")
+                if (model.SplicerCable3?.Trim() != null)
                 {
                     SplicerCableActivity cableActivity = new SplicerCableActivity();
                     cableActivity.CableId = model.SplicerCable3;
@@ -161,7 +174,7 @@ namespace TeleconApp.Implementation
                     cableActivity.SplicerPrepActivityId = id;
                     _db.SplicerCableActivities.Add(cableActivity);
                 }
-                if (model.SplicerCable4?.Trim() != "")
+                if (model.SplicerCable4?.Trim() != null)
                 {
                     SplicerCableActivity cableActivity = new SplicerCableActivity();
                     cableActivity.CableId = model.SplicerCable4;
@@ -174,7 +187,7 @@ namespace TeleconApp.Implementation
                     cableActivity.SplicerPrepActivityId = id;
                     _db.SplicerCableActivities.Add(cableActivity);
                 }
-                if (model.SplicerCable5?.Trim() != "")
+                if (model.SplicerCable5?.Trim() != null)
                 {
                     SplicerCableActivity cableActivity = new SplicerCableActivity();
                     cableActivity.CableId = model.SplicerCable5;
@@ -187,7 +200,7 @@ namespace TeleconApp.Implementation
                     cableActivity.SplicerPrepActivityId = id;
                     _db.SplicerCableActivities.Add(cableActivity);
                 }
-                if (model.SplicerCable6?.Trim() != "")
+                if (model.SplicerCable6?.Trim() != null)
                 {
                     SplicerCableActivity cableActivity = new SplicerCableActivity();
                     cableActivity.CableId = model.SplicerCable6;
@@ -200,7 +213,7 @@ namespace TeleconApp.Implementation
                     cableActivity.SplicerPrepActivityId = id;
                     _db.SplicerCableActivities.Add(cableActivity);
                 }
-                if (model.SplicerCable7?.Trim() != "")
+                if (model.SplicerCable7?.Trim() != null)
                 {
                     SplicerCableActivity cableActivity = new SplicerCableActivity();
                     cableActivity.CableId = model.SplicerCable7;
@@ -227,7 +240,15 @@ namespace TeleconApp.Implementation
         {
             try
             {
-                SplicerPrepActivity result = _db.SplicerPrepActivities.Where(r => r.EmployeeId == model.Id).FirstOrDefault();
+                var result = _db.SplicerPrepActivities.Where(r => r.EmployeeId == model.Id && r.CableTodayJobDoneDate.Value.Day == DateTime.Now.Day && r.CableTodayJobDoneDate.Value.Month == DateTime.Now.Month && r.CableTodayJobDoneDate.Value.Year == DateTime.Now.Year).FirstOrDefault();
+                if (result == null)
+                {
+                    result = _db.SplicerPrepActivities.Where(r => r.EmployeeId == model.Id && r.TimeSheetDate.Value.Day == DateTime.Now.Day && r.TimeSheetDate.Value.Month == DateTime.Now.Month && r.TimeSheetDate.Value.Year == DateTime.Now.Year).FirstOrDefault();
+                    if (result == null)
+                    {
+                        result = _db.SplicerPrepActivities.Where(r => r.EmployeeId == model.Id && r.TestTodayJobDoneDate.Value.Day == DateTime.Now.Day && r.TestTodayJobDoneDate.Value.Month == DateTime.Now.Month && r.TestTodayJobDoneDate.Value.Year == DateTime.Now.Year).FirstOrDefault();
+                    }
+                }
                 int id = 0;
                 SplicerPrepActivity activity = new SplicerPrepActivity();
                 if (result == null)
@@ -241,18 +262,23 @@ namespace TeleconApp.Implementation
                     activity.TestOnDutyTime = model.SplicerTime;
                     activity.CableBellNetworkNumber = model.BellNetworkNumber;
                     string partners = "";
-                    string lastItem = model.PartnersName.Last();
-                    foreach (var item in model.PartnersName)
+                    string lastItem = "";
+                    if (model.PartnersName != null && model.PartnersName.Count() > 0)
                     {
-                        if (item != lastItem)
+                        lastItem = model.PartnersName?.Last();
+                        foreach (var item in model.PartnersName)
                         {
-                            partners = partners + item + ",";
-                        }
-                        else
-                        {
-                            partners = partners + item;
+                            if (item != lastItem)
+                            {
+                                partners = partners + item + ",";
+                            }
+                            else
+                            {
+                                partners = partners + item;
+                            }
                         }
                     }
+                    
                     activity.TestPartnerName = partners;
                     activity.TestCompletedTime = model.SplicerEnterTime;
                     _db.SplicerPrepActivities.Add(activity);
@@ -329,34 +355,72 @@ namespace TeleconApp.Implementation
         {
             try
             {
-                SplicerPrepActivity result = _db.SplicerPrepActivities.Where(r => r.EmployeeId == model.Id).FirstOrDefault();
+                var result = _db.SplicerPrepActivities.Where(r => r.EmployeeId == model.Id && r.CableTodayJobDoneDate.Value.Day == DateTime.Now.Day && r.CableTodayJobDoneDate.Value.Month == DateTime.Now.Month && r.CableTodayJobDoneDate.Value.Year == DateTime.Now.Year).FirstOrDefault();
+                if (result == null)
+                {
+                    result = _db.SplicerPrepActivities.Where(r => r.EmployeeId == model.Id && r.TestTodayJobDoneDate.Value.Day == DateTime.Now.Day && r.TestTodayJobDoneDate.Value.Month == DateTime.Now.Month && r.TestTodayJobDoneDate.Value.Year == DateTime.Now.Year).FirstOrDefault();
+                    if (result == null)
+                    {
+                        result = _db.SplicerPrepActivities.Where(r => r.EmployeeId == model.Id && r.TimeSheetDate.Value.Day == DateTime.Now.Day && r.TimeSheetDate.Value.Month == DateTime.Now.Month && r.TimeSheetDate.Value.Year == DateTime.Now.Year).FirstOrDefault();
+                    }
+                }
 
                 int id = 0;
                 SplicerPrepActivity activity = new SplicerPrepActivity();
-                if (result.PrepSubmitDate.Date != DateTime.Now.Date)
+                if (result == null)
                 {
                     activity.EmployeeId = model.Id;
                     activity.Foreman = model.Foreman;
                     activity.Leader = model.Lead;
                     activity.VehiclePlateNumber = model.PlateNumber;
                     activity.TimeSheetSubmitDate = DateTime.Now;
+                    activity.TimeSheetComment = model.TimeSheetComment;
+                    activity.JobStart = model.JobStart;
+                    activity.JobFinish = model.JobFinish;
+                    activity.JobFinishAtSite = model.JobFinishAtSite;
+                    activity.ArriveAtShop = model.ArriveAtShop;
+                    activity.TimeSheetDate = model.TimeSheetDate;
+                    activity.Odometer = model.Odometer;
                     _db.SplicerPrepActivities.Add(activity);
                     _db.SaveChanges();
                 }
-                activity.TimeSheetComment = model.TimeSheetComment;
-                activity.JobStart = model.JobStart;
-                activity.JobFinish = model.JobFinish;
-                activity.JobFinishAtSite = model.JobFinishAtSite;
-                activity.ArriveAtShop = model.ArriveAtShop;
-                activity.TimeSheetDate = model.TimeSheetDate;
-                activity.Odometer = model.Odometer;
-                _db.SaveChanges();
-                id = activity.Id;
+                else
+                {
+                    result.TimeSheetComment = model.TimeSheetComment;
+                    result.JobStart = model.JobStart;
+                    result.JobFinish = model.JobFinish;
+                    result.JobFinishAtSite = model.JobFinishAtSite;
+                    result.ArriveAtShop = model.ArriveAtShop;
+                    result.TimeSheetDate = model.TimeSheetDate;
+                    result.Odometer = model.Odometer;
+                    _db.SaveChanges();
+                    id = result.Id;
+                }
+                
                 return id;
             }
             catch (Exception ex)
             {
                 string error = ex.Message;
+                throw;
+            }
+        }
+        public SplicerModel GetSplicerPrepActivity(int employeeId)
+        {
+            try
+            {
+                var result = _db.SplicerPrepActivities.Where(r => r.EmployeeId == employeeId)
+                    .Select(r=>new SplicerModel {
+                        Foreman = r.Foreman,
+                        Lead = r.Leader,
+                        BellNetworkNumber = r.CableBellNetworkNumber,
+                        PlateNumber = r.VehiclePlateNumber,
+                    }).FirstOrDefault();
+                return result;
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

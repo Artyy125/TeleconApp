@@ -28,7 +28,14 @@
                         <option></option>
                         @foreach (var item in Model.Networks)
                         {
-                            <option value="@item.BellNetworkNumber">@item.BellNetworkNumber</option>
+                           if (Model.BellNetworkNumber != null && Model.BellNetworkNumber == item.BellNetworkNumber)
+                            {
+                                <option selected="selected" value="@item.BellNetworkNumber">@item.BellNetworkNumber</option>
+                            }
+                            else
+                            {
+                                <option value="@item.BellNetworkNumber">@item.BellNetworkNumber</option>
+                            }
                         }
                     </select>
                 </div>

@@ -13,6 +13,7 @@
     <div class="row">
         <div class="row">
             <div class="col-sm-6">
+                <label class="alert-danger">@(Model?.SavedResult)</label>
                 @Html.ValidationSummary("", new { @class = "text-danger" })
             </div>
         </div>

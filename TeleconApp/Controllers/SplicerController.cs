@@ -22,6 +22,8 @@ namespace TeleconApp.Controllers
         public ActionResult Index()
         {
             SplicerModel sm = getSplicerData();
+            int empId = Convert.ToInt32(User.Identity.Name);
+            sm = GetSavedPrepActivity(empId, sm);
             return View(sm);
         }
         [HttpPost]
@@ -30,8 +32,14 @@ namespace TeleconApp.Controllers
             if (ModelState.IsValid)
             {
                 int id = _splicer.SaveSplicer(model);
-                model = getSplicerData();
-                ViewBag.SplicerSave = "Success";
+                SplicerModel sm = getSplicerData();
+                model.Employees = sm.Employees;
+                model.Vehicles = sm.Vehicles;
+                model.Networks = sm.Networks;
+                model.Enclosures = sm.Enclosures;
+                //model = getSplicerData();
+                //ViewBag.SplicerSave = "Success";
+                model.SavedResult = "Your data was saved!";
                 return View(model);
             }
             else
@@ -44,6 +52,8 @@ namespace TeleconApp.Controllers
         public ActionResult Test()
         {
             SplicerModel sm = getSplicerData();
+            int empId = Convert.ToInt32(User.Identity.Name);
+            sm = GetSavedPrepActivity(empId, sm);
             return View(sm);
         }
         [HttpPost]
@@ -52,8 +62,12 @@ namespace TeleconApp.Controllers
             if (ModelState.IsValid)
             {
                 int id = _splicer.SaveSplicerTest(model);
-                model = getSplicerData();
-                ViewBag.SplicerSave = "Success";
+                SplicerModel sm = getSplicerData();
+                model.Employees = sm.Employees;
+                model.Vehicles = sm.Vehicles;
+                model.Networks = sm.Networks;
+                model.Enclosures = sm.Enclosures;
+                model.SavedResult = "Your data was saved!";
                 return View(model);
             }
             else
@@ -66,6 +80,8 @@ namespace TeleconApp.Controllers
         public ActionResult TimeSheet()
         {
             SplicerModel sm = getSplicerData();
+            int empId = Convert.ToInt32(User.Identity.Name);
+            sm = GetSavedPrepActivity(empId, sm);
             return View(sm);
         }
         [HttpPost]
@@ -74,8 +90,12 @@ namespace TeleconApp.Controllers
             if (ModelState.IsValid)
             {
                 int id = _splicer.SaveSplicerTimesheet(model);
-                model = getSplicerData();
-                ViewBag.SplicerSave = "Success";
+                SplicerModel sm = getSplicerData();
+                model.Employees = sm.Employees;
+                model.Vehicles = sm.Vehicles;
+                model.Networks = sm.Networks;
+                model.Enclosures = sm.Enclosures;
+                model.SavedResult = "Your data was saved!";
                 return View(model);
             }
             else
@@ -104,6 +124,27 @@ namespace TeleconApp.Controllers
             sm.Enclosures = _splicer.GetAllEnclosures();
             sm.Enclosures.Sort((x, y) => x.Name.CompareTo(y.Name));
             return sm;
+        }
+        private SplicerModel GetSavedPrepActivity(int employeeId,SplicerModel data)
+        {
+            try
+            {
+                SplicerModel result = _splicer.GetSplicerPrepActivity(Convert.ToInt32(User.Identity.Name));
+                if (result != null)
+                {
+                    data.TechName = result.TechName;
+                    data.Lead = result.Lead;
+                    data.PlateNumber = result.PlateNumber;
+                    data.BellNetworkNumber = result.BellNetworkNumber;
+                    data.Foreman = result.Foreman;
+                }
+                return data;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

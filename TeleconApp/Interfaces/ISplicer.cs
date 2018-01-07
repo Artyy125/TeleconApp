@@ -16,5 +16,6 @@ namespace TeleconApp.Interfaces
         int SaveSplicer(SplicerModel model);
         int SaveSplicerTest(SplicerModel model);
         int SaveSplicerTimesheet(SplicerModel model);
+        SplicerModel GetSplicerPrepActivity(int employeeId);
     }
 }

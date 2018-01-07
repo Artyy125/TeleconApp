@@ -299,6 +299,14 @@
     <Compile Include="Migrations\201801062123223_updatePrep.Designer.cs">
       <DependentUpon>201801062123223_updatePrep.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801062356488_makeDatesNullable.cs" />
+    <Compile Include="Migrations\201801062356488_makeDatesNullable.Designer.cs">
+      <DependentUpon>201801062356488_makeDatesNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801070010037_makeDatesNullable2.cs" />
+    <Compile Include="Migrations\201801070010037_makeDatesNullable2.Designer.cs">
+      <DependentUpon>201801070010037_makeDatesNullable2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Identity\201801031732471_EmployeeId.cs" />
     <Compile Include="Migrations\Identity\201801031732471_EmployeeId.Designer.cs">
@@ -557,6 +565,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801062123223_updatePrep.resx">
       <DependentUpon>201801062123223_updatePrep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801062356488_makeDatesNullable.resx">
+      <DependentUpon>201801062356488_makeDatesNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801070010037_makeDatesNullable2.resx">
+      <DependentUpon>201801070010037_makeDatesNullable2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Identity\201801031732471_EmployeeId.resx">
       <DependentUpon>201801031732471_EmployeeId.cs</DependentUpon>

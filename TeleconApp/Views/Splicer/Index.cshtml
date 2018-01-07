@@ -8,10 +8,10 @@
     }
 </style>
 @Html.AntiForgeryToken()
-<div class="panel panel-body">
     <div class="row">
         <div class="row">
             <div class="col-sm-6">
+                <label class="alert-danger">@(Model?.SavedResult)</label>
                 @Html.ValidationSummary("", new { @class = "text-danger" })
             </div>
         </div>
@@ -59,29 +59,29 @@
                     </div>
                     <div class="row">
                         <div class="col-md-11 col-xs-11">
-                            <div class="form-group wrapper">
-                                <table id="SplicerTable" class="table-responsive" style="text-align:center">
+                            <div class="form-group" style="padding-left:30px">
+                                <table id="SplicerTable" class="table-responsive">
                                     <tr>
                                         <th>No</th>
-                                        <th>Cable Id</th>
-                                        <th>No of Fibres</th>
+                                        <th>CableId&nbsp;&nbsp;&nbsp;</th>
+                                        <th>No of Fibres&nbsp;&nbsp;&nbsp;</th>
                                         <th>Prepped</th>
                                         <th>De-Rebonized</th>
-                                        <th>Spliced Ribbon</th>
-                                        <th>Spliced Single</th>
+                                        <th>SplicedRibbon</th>
+                                        <th>SplicedSingle</th>
                                         <th>Missing</th>
                                     </tr>
                                     @for (int i = 0; i < 7; i++)
                                     {
                                         <tr>
-                                            <td width="30"><label>@(i + 1)</label></td>
-                                            <td class="col-xs-3 col-sm-3" width="100"><input type="text" class="form-control" id="SplicerCable@(i + 1)" name="SplicerCable@(i + 1)"></td>
-                                            <td width="60" style="text-wrap:normal"><input maxlength="5" type="text" class="form-control SplicerCable@(i + 1)" onkeyup="this.value=this.value.replace(/[^\d]/,'')" id="SplicerNoFibre@(i + 1)" name="SplicerNoFibre@(i + 1)" disabled></td>
-                                            <td width="10" style="text-wrap:normal"><input type="checkbox" class="form-control SplicerCable@(i + 1)" id="SplicerPrepped@(i + 1)" name="SplicerPrepped@(i + 1)" disabled></td>
-                                            <td width="10"><input type="checkbox" class="form-control SplicerCable@(i + 1)" id="SplicerDeRebonized@(i + 1)" name="SplicerDeRebonized@(i + 1)" disabled></td>
-                                            <td width="10"><input type="checkbox" class="form-control SplicerCable@(i + 1)" id="SplicerRibbon@(i + 1)" name="SplicerRibbon@(i + 1)" disabled></td>
-                                            <td width="10"><input type="checkbox" class="form-control SplicerCable@(i + 1)" id="SplicerSingle@(i + 1)" name="SplicerSingle@(i + 1)" disabled></td>
-                                            <td width="10"><input type="checkbox" class="form-control SplicerCable@(i + 1)" id="SplicerMissing@(i + 1)" name="SplicerMissing@(i + 1)" disabled></td>
+                                            <td><label>@(i + 1)</label></td>
+                                            <td><input type="text" class="form-control" id="SplicerCable@(i + 1)" name="SplicerCable@(i + 1)"></td>
+                                            <td><input maxlength="5" type="text" class="form-control SplicerCable@(i + 1)" onkeyup="this.value=this.value.replace(/[^\d]/,'')" id="SplicerNoFibre@(i + 1)" name="SplicerNoFibre@(i + 1)" disabled></td>
+                                            <td><input type="checkbox" class="form-control SplicerCable@(i + 1)" id="SplicerPrepped@(i + 1)" name="SplicerPrepped@(i + 1)" disabled></td>
+                                            <td><input type="checkbox" class="form-control SplicerCable@(i + 1)" id="SplicerDeRebonized@(i + 1)" name="SplicerDeRebonized@(i + 1)" disabled></td>
+                                            <td><input type="checkbox" class="form-control SplicerCable@(i + 1)" id="SplicerRibbon@(i + 1)" name="SplicerRibbon@(i + 1)" disabled></td>
+                                            <td><input type="checkbox" class="form-control SplicerCable@(i + 1)" id="SplicerSingle@(i + 1)" name="SplicerSingle@(i + 1)" disabled></td>
+                                            <td><input type="checkbox" class="form-control SplicerCable@(i + 1)" id="SplicerMissing@(i + 1)" name="SplicerMissing@(i + 1)" disabled></td>
                                         </tr>
                                     }
                                 </table>
@@ -107,7 +107,6 @@
             </form>
         </div>
     </div>
-</div>
 <script src="~/Scripts/Myscript.js"></script>
 <script>
     $('#SplicerForm').on('submit', function (event) {

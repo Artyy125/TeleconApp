@@ -24,8 +24,9 @@ td, th {
     text-align: left;
 }
 @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
-
-    
+    table th{
+        text-align:center;
+    }
 }
     /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 

@@ -20,10 +20,10 @@ namespace TeleconApp.Models
         public string Foreman { get; set; }
         [Required]
         public string Lead { get; set; }
-        [Required]
+        public string SavedResult { get; set; }
         public string PlateNumber { get; set; }
-        public DateTime SplicerDate { get; set; }
-        public DateTime SplicerTime { get; set; }
+        public DateTime? SplicerDate { get; set; }
+        public DateTime? SplicerTime { get; set; }
         public string BellNetworkNumber { get; set; }
         public List<string> PartnersName { get; set; }
         public string Enclosure { get; set; }
@@ -77,8 +77,8 @@ namespace TeleconApp.Models
         public string SplicerRibbon7 { get; set; }
         public string SplicerSingle7 { get; set; }
         public string SplicerMissing7 { get; set; }
-        public DateTime SplicerEnterTime { get; set; }
-        public DateTime SubmitDate { get; set; }
+        public DateTime? SplicerEnterTime { get; set; }
+        public DateTime? SubmitDate { get; set; }
         public string TestComment { get; set; }
         public string TimeSheetComment { get; set; }
         public string STARB1 { get; set; }
@@ -95,11 +95,11 @@ namespace TeleconApp.Models
         public string SPTesting6 { get; set; }
         public string STARB7 { get; set; }
         public string SPTesting7 { get; set; }
-        public DateTime JobStart { get; set; }
-        public DateTime JobFinishAtSite { get; set; }
-        public DateTime ArriveAtShop { get; set; }
-        public DateTime JobFinish { get; set; }
-        public DateTime TimeSheetDate { get; set; }
+        public DateTime? JobStart { get; set; }
+        public DateTime? JobFinishAtSite { get; set; }
+        public DateTime? ArriveAtShop { get; set; }
+        public DateTime? JobFinish { get; set; }
+        public DateTime? TimeSheetDate { get; set; }
         public string Odometer { get; set; }
 
 
