@@ -39,6 +39,7 @@ namespace TeleconApp.EFModel
         public DateTime? CableOnDutyTime { get; set; }
         public string CablePartnerName { get; set; }
         public string CableBellNetworkNumber { get; set; }
+        public int Telegram { get; set; }
 
 
     }
